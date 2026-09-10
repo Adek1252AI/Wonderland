@@ -377,18 +377,26 @@
     spots.forEach(renderSpot);
 
     // ──────────────────────────────────────────────────────
-    //  Scroll reveal
+    //  Init — render spots immediately, then reveal
     // ──────────────────────────────────────────────────────
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    spots.forEach(renderSpot);
+
+    // Wait for layout to settle, then trigger reveal on everything
+    // Safari on iOS needs the cards to exist in the DOM before the
+    // IntersectionObserver fires — defer by one frame.
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.reveal').forEach(el => {
+        // Make visible immediately if already in view (typical on short pages)
+        const rect = el.getBoundingClientRect();
+        const winH = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < winH && rect.bottom > 0) {
+          el.classList.add('visible');
         }
       });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      // Then let IO handle scroll-based reveals
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
   </script>
 
 </body>
