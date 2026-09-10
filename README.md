@@ -1,25 +1,36 @@
 # Wonderland
 
-A minimal, surf-inspired single-page site for Agadir, Morocco.
+A surf-vibe single-page site guiding beginners to the best surf spots near Agadir, Morocco.
 
-Live: https://adek1252ai.github.io/Wonderland/
+**Live site:** https://adek1252ai.github.io/Wonderland/
 
-## Structure
+## About
 
-- `index.html` — single-page site: hero, surf-spots section, about, footer
-- `css/style.css` — all styles (sandy/beach palette, clean typography)
-- `img/favicon.svg` — inline SVG favicon
+Wonderland showcases the top beginner-friendly surf breaks along the Agadir coast — Crocro, Panoramas, Banana Point, Imsouane, Anza, and more. Each spot card includes location, wave character, and difficulty rating.
 
-## Surf spots content
+Built with a handcrafted HTML/CSS site — no frameworks, just a warm surf aesthetic, scroll-reveal animations, and an animated wave hero.
 
-The surf-spots section is ready for content from **@reasercher**. Each spot is an `<article class="spot-card">` — see the HTML comment block inside `index.html` for the exact template. To add spots, duplicate the placeholder card and fill in the real data.
+## Stack
 
-## Deploy
+- Single `index.html` — hand-written HTML + CSS + vanilla JS
+- Google Fonts (Playfair Display + Inter)
+- No build step, no dependencies
+- Deployed via GitHub Pages
 
-Pages are published from `main` on push. After committing:
+## Developing
+
+Open `index.html` in a browser, or serve locally:
 
 ```bash
-git push origin main
+cd Wonderland
+python3 -m http.server 8000
+# → localhost:8000
 ```
 
-GitHub Pages will build and serve at the URL above.
+## Surf spots data
+
+The spots are defined in the `<script>` block at the bottom of `index.html` as a `const spots = [...]`. Add or edit entries there.
+
+## License
+
+Public domain — ride free.

@@ -3,154 +3,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wonderland — surf, sand & stillness</title>
-  <meta name="description" content="A minimal surf guide. Waves, beaches, and the quiet between.">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Wonderland — Surf & Sun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sand: #f4e4c1;
+      --surf-teal: #1a6b6b;
+      --ocean: #0d3b4f;
+      --sunset: #e8634a;
+      --foam: #faf7f2;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--foam);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(135deg, #0d3b4f 0%, #1a6b6b 40%, #2a8a8a 70%, #3aa0a0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(248,187,160,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+    }
+
+    .waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 120px;
+      animation: waveSlide 8s linear infinite;
+    }
+
+    .waves svg { width: 500px; height: 120px; }
+
+    @keyframes waveSlide {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      max-width: 720px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      animation: fadeUp 1s ease-out;
+    }
+
+    .hero-content .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    .hero-content .cta {
+      margin-top: 2.5rem;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--sunset);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(232,99,74,0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(232,99,74,0.45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+      margin-left: 0.8rem;
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: var(--ocean);
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* ── Surf Spots Grid ── */
+    .spots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .spot-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .spot-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .spot-card .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .spot-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--ocean);
+      margin-bottom: 0.3rem;
+    }
+
+    .spot-card .location {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .spot-card p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .spot-card .difficulty {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .diff-beginner { background: #d4edda; color: #155724; }
+    .diff-intermediate { background: #fff3cd; color: #856404; }
+
+    /* ── About ── */
+    .about-section {
+      background: var(--foam);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--surf-teal), var(--ocean));
+      border-radius: 20px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 4rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ocean);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-content .cta { flex-direction: column; align-items: center; }
+      .btn-outline { margin-left: 0; margin-top: 0.8rem; }
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="#top" class="logo">Wonderland</a>
-      <nav class="site-nav">
-        <a href="#spots">Spots</a>
-        <a href="#about">About</a>
-      </nav>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Wonderland</h1>
+      <p class="tagline">Ride the wave. Find your spot.</p>
+      <div class="cta">
+        <a href="#spots" class="btn btn-primary">Explore Spots</a>
+        <a href="#about" class="btn btn-outline">About</a>
+      </div>
+    </div>
+    <div class="waves" aria-hidden="true">
+      <svg viewBox="0 0 500 120" preserveAspectRatio="none">
+        <path d="M0,60 C50,30 100,90 150,60 C200,30 250,90 300,60 C350,30 400,90 450,60 C500,30 550,90 600,60 L600,120 L0,120 Z" fill="rgba(255,255,255,0.08)"/>
+        <path d="M0,80 C60,50 120,100 180,75 C240,50 300,100 360,75 C420,50 480,100 540,75 C600,50 660,100 720,75 L720,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/>
+      </svg>
     </div>
   </header>
 
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="hero-content">
-        <p class="hero-eyebrow">Agadir, Morocco</p>
-        <h1 class="hero-title">where the ocean<br>meets the stillness</h1>
-        <p class="hero-sub">A quiet collection of surf spots — built for the longboarder, the beginner, the wanderer. More soon.</p>
-        <a href="#spots" class="hero-cta">Explore spots</a>
-      </div>
-      <div class="hero-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z" fill="currentColor">
-            <animate attributeName="d"
-              values="M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z;
-                      M0,60 C360,0 720,120 1080,60 C1260,30 1380,90 1440,60 L1440,120 L0,120 Z;
-                      M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z"
-              dur="8s" repeatCount="indefinite"/>
-          </path>
-        </svg>
-      </div>
-    </section>
-
-    <!-- SURF SPOTS — content slot -->
-    <section class="spots-section" id="spots">
-      <div class="container">
-        <header class="section-header">
-          <p class="section-eyebrow">Beginner-friendly</p>
-          <h2 class="section-title">Five spots near Agadir</h2>
-          <p class="section-sub">Gentle waves, sandy bottoms, and room to learn. Curated by <span class="attribution">@reasercher</span>.</p>
-        </header>
-
-        <!--
-          ============================================================
-          SURF SPOT CARDS — slot content here
-          ============================================================
-          Each spot is a <article class="spot-card"> with this structure:
-
-          <article class="spot-card">
-            <div class="spot-card-inner">
-              <div class="spot-meta">
-                <span class="spot-tag">Beginner</span>
-                <span class="spot-distance">12 km from Agadir</span>
-              </div>
-              <h3 class="spot-name">Spot Name</h3>
-              <p class="spot-desc">
-                A short, atmospheric description of the spot — the vibe,
-                the wave, who it suits.
-              </p>
-              <dl class="spot-details">
-                <dt>Wave</dt>
-                <dd>Gentle beach break</dd>
-                <dt>Bottom</dt>
-                <dd>Sand</dd>
-                <dt>Best for</dt>
-                <dd>Longboard, learning</dd>
-                <dt>Season</dt>
-                <dd>April – October</dd>
-              </dl>
-              <div class="spot-footer">
-                <span class="spot-difficulty">
-                  <span class="difficulty-dot difficulty-easy" aria-hidden="true"></span>
-                  Easy
-                </span>
-              </div>
-            </div>
-          </article>
-
-          Repeat per spot. The CSS handles layout — add as many
-          <article class="spot-card"> blocks as needed.
-        -->
-
-        <!-- PLACEHOLDER CARD — remove when @reasercher delivers content -->
-        <article class="spot-card placeholder-card">
-          <div class="spot-card-inner">
-            <div class="spot-meta">
-              <span class="spot-tag">Placeholder</span>
-            </div>
-            <h3 class="spot-name">Spot name goes here</h3>
-            <p class="spot-desc">
-              A short description of this surf spot — the vibe, the wave,
-              who it suits, and why it made the list.
-            </p>
-            <dl class="spot-details">
-              <dt>Wave</dt>
-              <dd>Type of break</dd>
-              <dt>Bottom</dt>
-              <dd>Sand / reef / rocks</dd>
-              <dt>Best for</dt>
-              <dd>Board type &amp; level</dd>
-              <dt>Season</dt>
-              <dd>When to go</dd>
-            </dl>
-            <div class="spot-footer">
-              <span class="spot-difficulty">
-                <span class="difficulty-dot difficulty-medium" aria-hidden="true"></span>
-                Medium
-              </span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ABOUT / MISSION -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="about-inner">
-          <p class="about-eyebrow">the idea</p>
-          <h2 class="about-title">not a guide — a feeling</h2>
-          <p class="about-body">
-            Wonderland is a small, slow page for people who surf, or want to,
-            near Agadir. No noise. Just spots, notes, and the knowledge that
-            the next set is always coming.
-          </p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="footer-brand">Wonderland</p>
-      <p class="footer-copy">A minimal surf page &middot; Agadir, Morocco &middot; Built for the beach.</p>
+  <!-- SPOTS -->
+  <section id="spots" class="reveal">
+    <h2 class="section-title">Beginner Surf Spots</h2>
+    <p class="section-sub">Gentle breaks near Agadir for your first waves</p>
+    <div class="spots-grid" id="spotsGrid">
+      <!-- Populated by JS -->
     </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section reveal">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title" style="text-align:left; margin-bottom:1rem;">About Wonderland</h2>
+        <p>Wonderland is your guide to the best beginner-friendly surf spots along the Agadir coast. Whether you're popping up for the first time or looking to build consistency, these breaks offer forgiving waves and a welcoming surf culture.</p>
+        <p>We've researched each spot for wave quality, beginner suitability, facilities, and local vibes — so you can spend less time planning and more time in the water.</p>
+      </div>
+      <div class="about-visual">
+        🏄
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Wonderland &mdash; built with ☀️ and 🌊</p>
+    <p style="margin-top:0.5rem;">Data researched and curated for surfers, by surfers.</p>
   </footer>
+
+  <script>
+    // ── Surf spots data (will be enriched by @reasercher) ──
+    const spots = [
+      {
+        emoji: '🏖️',
+        name: 'Crocro Beach',
+        location: 'Agadir — 6 km north of city center',
+        description: 'A sheltered, sandy beach break with small, rolling waves ideal for first-timers. Local surf schools operate here daily.',
+        difficulty: 'Beginner',
+        diffClass: 'diff-beginner'
+      },
+      {
+        emoji: '🌅',
+        name: 'Panoramas',
+        location: 'Agadir — south of the Marina',
+        description: 'Consistent soft waves with a wide, uncrowded beach. Great for longboard practice and surf lessons. Cafes and rentals nearby.',
+        difficulty: 'Beginner',
+        diffClass: 'diff-beginner'
+      },
+      {
+        emoji: '🍌',
+        name: 'Banana Point',
+        location: 'Taghazout — 30 km south of Agadir',
+        description: 'A famous point break with a gentle left that peels slowly. Popular with beginners and longboarders. Plenty of guesthouses and surf camps in Taghazout village.',
+        difficulty: 'Beginner–Intermediate',
+        diffClass: 'diff-beginner'
+      },
+      {
+        emoji: '🏄',
+        name: 'Imsouane',
+        location: 'Imsouane — 50 km south of Agadir',
+        description: 'A laid-back fishing village with a long, slow-rolling point break. The "Boiler" offers forgiving waves for beginners; the main break suits intermediate riders.',
+        difficulty: 'Beginner–Intermediate',
+        diffClass: 'diff-intermediate'
+      },
+      {
+        emoji: '🐚',
+        name: 'Anza',
+        location: 'Anza — between Taghazout and Imsouane',
+        description: 'A quiet beach break with sandy bottom and gentle waves. Almost no crowds. Perfect for absolute beginners who want peace and space to practice.',
+        difficulty: 'Beginner',
+        diffClass: 'diff-beginner'
+      }
+    ];
+
+    // ── Render spots ──
+    const grid = document.getElementById('spotsGrid');
+    spots.forEach(spot => {
+      const card = document.createElement('div');
+      card.className = 'spot-card';
+      card.innerHTML = `
+        <span class="emoji">${spot.emoji}</span>
+        <h3>${spot.name}</h3>
+        <p class="location">${spot.location}</p>
+        <p>${spot.description}</p>
+        <span class="difficulty ${spot.diffClass}">${spot.difficulty}</span>
+      `;
+      grid.appendChild(card);
+    });
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
