@@ -564,6 +564,7 @@ ul, ol { list-style: none; }
 /* ---------- Scroll reveal ---------- */
 .reveal {
   opacity: 0;
+  visibility: visible;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
