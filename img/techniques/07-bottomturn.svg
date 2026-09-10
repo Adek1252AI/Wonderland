@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#f3ede4"/>
+    <stop offset="100%" stop-color="#f0f7f5"/>
+  </linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#d9ebe4"/>
+    <stop offset="100%" stop-color="#b3d3c7"/>
+  </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="520" height="380" fill="url(#sky)" rx="12"/>
+<!-- wave shape — bigger, peeling -->
+<path d="M0 200 Q60 180 120 200 Q180 170 240 190 Q300 155 360 185 Q420 165 480 195 L520 210 L520 380 L0 380 Z" 
+      fill="#d9ebe4" opacity="0.8"/>
+<path d="M0 200 Q60 180 120 200 Q180 170 240 190 Q300 155 360 185 Q420 165 480 195" 
+      stroke="#7bb3a4" stroke-width="1.5" fill="none"/>
+<!-- lip of wave -->
+<path d="M350 185 Q360 155 380 155 Q400 160 410 185" 
+      stroke="#14303a" stroke-width="1.5" fill="none" opacity="0.5"/>
+<!-- whitewater at bottom -->
+<path d="M0 300 Q60 290 120 300 Q180 285 240 295 L240 380 L0 380 Z" 
+      fill="#f3ede4" opacity="0.3"/>
+
+<!-- trajectory: drop in → bottom turn → up face -->
+<path d="M380 185 L320 270 L250 230" 
+      stroke="#14303a" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.5"/>
+<!-- arrow along trajectory -->
+<path d="M370 195 L340 240" stroke="#14303a" stroke-width="1" marker-end="url(#trajArrow)" opacity="0.4"/>
+
+<!-- surfer position: mid-bottom-turn, crouched low, rail dug in -->
+<!-- board on wave face -->
+<rect x="225" y="243" width="55" height="5" rx="2.5" fill="#9c8f78"/>
+<!-- rider crouched low -->
+<path d="M245 238 L265 238 L265 244 L245 244 Z" fill="#3b352c"/>
+<!-- back leg bent deep -->
+<path d="M255 240 L258 262" stroke="#3b352c" stroke-width="4.5" stroke-linecap="round"/>
+<!-- front leg -->
+<path d="M248 240 L245 260" stroke="#3b352c" stroke-width="4.5" stroke-linecap="round"/>
+<!-- knees compressed indicator -->
+<circle cx="256" cy="252" r="2.5" fill="#3e7a6b" opacity="0.7"/>
+<circle cx="246" cy="252" r="2.5" fill="#3e7a6b" opacity="0.7"/>
+<!-- torso leaning forward -->
+<path d="M242 235 L270 235 L270 238 L242 238 Z" fill="#3b352c"/>
+<!-- head looking up the face -->
+<circle cx="256" cy="230" r="6" fill="#3b352c"/>
+<line x1="261" y1="228" x2="275" y2="222" stroke="#faf8f5" stroke-width="1.2"/>
+<!-- arm reaching down to wave (pivot point) -->
+<path d="M250 237 L240 248" stroke="#3b352c" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="240" cy="248" r="2" fill="#3b352c"/>
+
+<!-- annotation: inside rail dug in -->
+<path d="M225 245 L200 255" stroke="#3e7a6b" stroke-width="1" opacity="0.5"/>
+<text x="195" y="258" font-family="DM Sans, system-ui, sans-serif" font-size="7" 
+      fill="#3e7a6b" opacity="0.65">inside rail</text>
+
+<!-- annotation: look where going -->
+<path d="M275 225 L310 210" stroke="#14303a" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.5"/>
+<text x="315" y="208" font-family="DM Sans, system-ui, sans-serif" font-size="7" 
+      fill="#14303a" opacity="0.6">look up face</text>
+
+<!-- annotation: crouched low -->
+<text x="270" y="258" font-family="DM Sans, system-ui, sans-serif" font-size="7" 
+      fill="#9c8f78" opacity="0.6">low &amp; compressed</text>
+
+<!-- simple speed arrows -->
+<path d="M230 250 L220 252" stroke="#7bb3a4" stroke-width="1" opacity="0.4"/>
+<path d="M225 252 L215 254" stroke="#7bb3a4" stroke-width="1" opacity="0.3"/>
+
+<defs>
+  <marker id="trajArrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+    <path d="M0 0 L5 2.5 L0 5 Z" fill="#14303a" opacity="0.4"/>
+  </marker>
+</defs>
+
+<text x="260" y="355" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" 
+      font-size="13" fill="#6b6153" letter-spacing="0.12em" text-transform="uppercase">
+  Basic Turning / Bottom Turn
+</text>
+</svg>

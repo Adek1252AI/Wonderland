@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#f3ede4"/>
+    <stop offset="100%" stop-color="#f0f7f5"/>
+  </linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#d9ebe4"/>
+    <stop offset="100%" stop-color="#b3d3c7"/>
+  </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="520" height="380" fill="url(#sky)" rx="12"/>
+<!-- distant horizon -->
+<line x1="0" y1="240" x2="520" y2="240" stroke="#d6cdbc" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+<!-- sea -->
+<rect x="0" y="240" width="520" height="140" fill="url(#sea)"/>
+<!-- wave lines -->
+<path d="M20 270 Q60 265 100 270 T180 270 T260 270 T340 270 T420 270 T500 270" 
+      stroke="#7bb3a4" stroke-width="1.2" fill="none" opacity="0.5"/>
+<path d="M20 295 Q70 290 120 295 T220 295 T320 295 T420 295 T500 295" 
+      stroke="#7bb3a4" stroke-width="1" fill="none" opacity="0.35"/>
+<!-- board -->
+<rect x="130" y="228" width="260" height="10" rx="5" fill="#9c8f78"/>
+<rect x="130" y="228" width="260" height="3" rx="1.5" fill="#d6cdbc"/>
+<!-- surfer body (prone, chest slightly raised) -->
+<path d="M200 220 C200 200 240 195 270 200 C290 204 320 210 340 215 
+         L340 225 C320 222 295 218 275 215 C250 212 220 216 200 220 Z" 
+      fill="#3b352c" opacity="0.85"/>
+<!-- head -->
+<circle cx="345" cy="212" r="8" fill="#3b352c"/>
+<!-- arms paddling — left arm reaching forward, right arm pulling back -->
+<path d="M270 205 Q240 195 210 200" stroke="#3b352c" stroke-width="3.5" 
+      stroke-linecap="round" fill="none"/>
+<path d="M290 210 Q320 200 355 205" stroke="#3b352c" stroke-width="3.5" 
+      stroke-linecap="round" fill="none"/>
+<!-- hand paddling in water -->
+<ellipse cx="208" cy="210" rx="5" ry="3" fill="#7bb3a4" opacity="0.6"/>
+<ellipse cx="358" cy="213" rx="5" ry="3" fill="#7bb3a4" opacity="0.6"/>
+<!-- paddle stroke arrows -->
+<path d="M180 215 L200 210" stroke="#3e7a6b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M370 215 L355 210" stroke="#3e7a6b" stroke-width="1.5" marker-end="url(#arrow2)"/>
+<!-- label -->
+<text x="260" y="355" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" 
+      font-size="13" fill="#6b6153" letter-spacing="0.12em" text-transform="uppercase">
+  Paddling
+</text>
+<!-- subtle arrow indicators for stroke direction -->
+<defs>
+  <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+    <path d="M0 0 L6 3 L0 6 Z" fill="#3e7a6b" opacity="0.5"/>
+  </marker>
+  <marker id="arrow2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+    <path d="M6 0 L0 3 L6 6 Z" fill="#3e7a6b" opacity="0.5"/>
+  </marker>
+</defs>
+</svg>

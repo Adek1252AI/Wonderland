@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" width="520" height="380">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#f3ede4"/>
+    <stop offset="100%" stop-color="#f0f7f5"/>
+  </linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#d9ebe4"/>
+    <stop offset="100%" stop-color="#b3d3c7"/>
+  </linearGradient>
+</defs>
+
+<rect x="0" y="0" width="520" height="380" fill="url(#sky)" rx="12"/>
+<rect x="0" y="240" width="520" height="140" fill="url(#sea)"/>
+
+<!-- whitewater wall coming from right (offshore perspective) -->
+<path d="M380 240 L520 200 L520 260 L380 240 Z" 
+      fill="#f3ede4" opacity="0.7"/>
+<path d="M380 240 L520 200" stroke="#d8cbb2" stroke-width="1.5"/>
+<path d="M380 240 L520 220" stroke="#e9dfce" stroke-width="1" opacity="0.5"/>
+<path d="M380 240 L520 240" stroke="#e9dfce" stroke-width="1" opacity="0.5"/>
+<!-- foam texture -->
+<circle cx="420" cy="225" r="2" fill="#faf8f5" opacity="0.6"/>
+<circle cx="450" cy="230" r="1.5" fill="#faf8f5" opacity="0.5"/>
+<circle cx="470" cy="215" r="2" fill="#faf8f5" opacity="0.6"/>
+<circle cx="440" cy="238" r="1.5" fill="#faf8f5" opacity="0.5"/>
+
+<!-- board pointing toward beach (left) -->
+<rect x="140" y="228" width="180" height="7" rx="3.5" fill="#9c8f78" transform="rotate(-5 230 231)"/>
+<rect x="140" y="228" width="180" height="2" rx="1" fill="#d6cdbc" transform="rotate(-5 230 231)"/>
+
+<!-- surfer mid-pop-up — one knee up, transitioning -->
+<!-- back foot planted -->
+<path d="M240 225 L240 240" stroke="#3b352c" stroke-width="4" stroke-linecap="round"/>
+<!-- front foot coming forward -->
+<path d="M270 225 L275 238" stroke="#3b352c" stroke-width="4" stroke-linecap="round"/>
+<!-- torso pushing up -->
+<path d="M238 220 L280 220 L280 228 L238 228 Z" fill="#3b352c" opacity="0.85"/>
+<!-- head up, looking forward -->
+<circle cx="259" cy="214" r="6" fill="#3b352c"/>
+<line x1="264" y1="213" x2="274" y2="212" stroke="#faf8f5" stroke-width="1.2"/>
+<!-- arms pushing up -->
+<path d="M245 222 L240 215" stroke="#3b352c" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M270 222 L272 215" stroke="#3b352c" stroke-width="2.5" stroke-linecap="round"/>
+
+<!-- arrow: paddling direction (toward shore/beach) -->
+<path d="M100 235 L130 235" stroke="#3e7a6b" stroke-width="1.2" marker-end="url(#arrR)"/>
+<text x="95" y="238" font-family="DM Sans, system-ui, sans-serif" font-size="7" 
+      fill="#3e7a6b" opacity="0.7">paddle</text>
+
+<!-- arrow: pop up cue -->
+<path d="M259 208 L259 195" stroke="#14303a" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+<text x="265" y="192" font-family="DM Sans, system-ui, sans-serif" font-size="7" 
+      fill="#14303a" opacity="0.6">feel the push →</text>
+
+<!-- annotation: whitewater -->
+<text x="450" y="265" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" 
+      font-size="8" fill="#6b6153" opacity="0.7">whitewater</text>
+
+<!-- start in waist-deep -->
+<rect x="0" y="310" width="520" height="70" fill="#f3ede4" opacity="0.4"/>
+<line x1="0" y1="310" x2="520" y2="310" stroke="#e9dfce" stroke-width="0.8" opacity="0.5"/>
+<text x="260" y="348" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" 
+      font-size="8" fill="#9c8f78" opacity="0.6">waist-deep water</text>
+
+<defs>
+  <marker id="arrR" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+    <path d="M0 0 L5 2.5 L0 5 Z" fill="#3e7a6b" opacity="0.5"/>
+  </marker>
+</defs>
+
+<text x="260" y="355" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" 
+      font-size="13" fill="#6b6153" letter-spacing="0.12em" text-transform="uppercase">
+  Catching Whitewater
+</text>
+</svg>

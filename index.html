@@ -400,36 +400,43 @@
         step: '01',
         title: 'Paddling',
         desc: 'Lie centred on the board, chest lifted, feet together. Reach forward with alternating arms using a long, smooth stroke — elbows high, fingers together. Keep the board planing flat; too far forward and the nose dives, too far back and you slow down. Build the rhythm before you chase any wave.',
+        img: 'img/techniques/01-paddling.svg',
       },
       {
         step: '02',
         title: 'Popping Up',
         desc: 'From the prone position, hands flat at your ribs, push up in one fluid motion and bring both feet under you — back foot first, then front — landing in a low crouch with knees bent, eyes forward, arms out for balance. Practise on dry land first; the muscle memory will save you in the whitewash.',
+        img: 'img/techniques/02-popup.svg',
       },
       {
         step: '03',
         title: 'Catching Waves',
         desc: 'Paddle toward the breaking wave early and commit. Feel the board lift and accelerate — that\'s the moment. Don\'t hesitate or pull back; a late pop-up means a missed wave. Look where you want to go, not at your feet. Whitewater broken waves are your first catch.',
+        img: 'img/techniques/06-whitewater.svg',
       },
       {
         step: '04',
         title: 'Stance & Balance',
         desc: 'Feet shoulder-width apart, weight over the centre-line of the board, knees bent like shock absorbers. Arms out, shoulders square, eyes on the horizon — never down at the board. A low centre of gravity keeps you on the board; a stiff upright posture sends you into the water.',
+        img: 'img/techniques/03-stance.svg',
       },
       {
         step: '05',
         title: 'Steering & Trim',
         desc: 'Once you\'re riding, small weight shifts do the work. Pressure on the back foot slows and lets the wave catch up; pressure on the front foot speeds up. Lean your shoulders to turn — the board follows your body, not your arms. Stay in the pocket, the steepest part of the wave face.',
+        img: 'img/techniques/05-reading-waves.svg',
       },
       {
         step: '06',
         title: 'Bottom Turn',
         desc: 'The first real turn — carving up the face of the wave after the drop. Look toward where you want to go, lean into the turn with your inside rail, and use your back foot to drive the tail around. It sets up every other manoeuvre you\'ll learn, so get comfortable with it early.',
+        img: 'img/techniques/07-bottomturn.svg',
       },
       {
         step: '07',
         title: 'Duck Dive / Turtle Roll',
         desc: 'Getting past breaking waves without getting cleaned out. On a shortboard, push the nose under the whitewater with your hands and use your knee to sink the tail — that\'s a duck dive. On a longboard, roll the board upside down and let the wave pass over you — that\'s the turtle roll. Both save your energy and your position in the lineup.',
+        img: 'img/techniques/04-duckdive.svg',
       },
     ];
 
@@ -439,6 +446,9 @@
       const card = document.createElement('article');
       card.className = 'technique-card';
       card.innerHTML = `
+        <div class="technique-img-wrap">
+          <img src="${t.img}" alt="${t.title}" class="technique-img" width="520" height="380" loading="lazy">
+        </div>
         <span class="technique-step">${t.step}</span>
         <h3 class="technique-title">${t.title}</h3>
         <p class="technique-desc">${t.desc}</p>
