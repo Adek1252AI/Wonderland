@@ -3,400 +3,390 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wonderland — Surf & Sun</title>
+  <title>Wonderland — Surf Spots Near Agadir</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --sand: #f4e4c1;
-      --surf-teal: #1a6b6b;
-      --ocean: #0d3b4f;
-      --sunset: #e8634a;
-      --foam: #faf7f2;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--foam);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: linear-gradient(135deg, #0d3b4f 0%, #1a6b6b 40%, #2a8a8a 70%, #3aa0a0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 80%, rgba(248,187,160,0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
-    }
-
-    .waves {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 120px;
-      animation: waveSlide 8s linear infinite;
-    }
-
-    .waves svg { width: 500px; height: 120px; }
-
-    @keyframes waveSlide {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 2rem;
-      max-width: 720px;
-    }
-
-    .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 700;
-      color: #fff;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-      animation: fadeUp 1s ease-out;
-    }
-
-    .hero-content .tagline {
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      color: rgba(255,255,255,0.8);
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      animation: fadeUp 1s ease-out 0.2s both;
-    }
-
-    .hero-content .cta {
-      margin-top: 2.5rem;
-      animation: fadeUp 1s ease-out 0.4s both;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 2.4rem;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--sunset);
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(232,99,74,0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(232,99,74,0.45);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.5);
-      margin-left: 0.8rem;
-    }
-
-    .btn-outline:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Sections ── */
-    section {
-      padding: 5rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: var(--ocean);
-    }
-
-    .section-sub {
-      text-align: center;
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-
-    /* ── Surf Spots Grid ── */
-    .spots-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .spot-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .spot-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    }
-
-    .spot-card .emoji {
-      font-size: 2.5rem;
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
-    .spot-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--ocean);
-      margin-bottom: 0.3rem;
-    }
-
-    .spot-card .location {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-
-    .spot-card p {
-      color: var(--text);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .spot-card .difficulty {
-      display: inline-block;
-      margin-top: 0.8rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 600;
-    }
-
-    .diff-beginner { background: #d4edda; color: #155724; }
-    .diff-intermediate { background: #fff3cd; color: #856404; }
-
-    /* ── About ── */
-    .about-section {
-      background: var(--foam);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      margin-bottom: 1rem;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .about-visual {
-      background: linear-gradient(135deg, var(--surf-teal), var(--ocean));
-      border-radius: 20px;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 4rem;
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--ocean);
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 2.5rem 2rem;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-    }
-
-    footer a:hover { text-decoration: underline; }
-
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; }
-      .hero-content .cta { flex-direction: column; align-items: center; }
-      .btn-outline { margin-left: 0; margin-top: 0.8rem; }
-    }
-
-    /* ── Scroll reveal ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Wonderland</h1>
-      <p class="tagline">Ride the wave. Find your spot.</p>
-      <div class="cta">
-        <a href="#spots" class="btn btn-primary">Explore Spots</a>
-        <a href="#about" class="btn btn-outline">About</a>
-      </div>
-    </div>
-    <div class="waves" aria-hidden="true">
-      <svg viewBox="0 0 500 120" preserveAspectRatio="none">
-        <path d="M0,60 C50,30 100,90 150,60 C200,30 250,90 300,60 C350,30 400,90 450,60 C500,30 550,90 600,60 L600,120 L0,120 Z" fill="rgba(255,255,255,0.08)"/>
-        <path d="M0,80 C60,50 120,100 180,75 C240,50 300,100 360,75 C420,50 480,100 540,75 C600,50 660,100 720,75 L720,120 L0,120 Z" fill="rgba(255,255,255,0.05)"/>
-      </svg>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo">Wonderland</a>
+      <nav class="site-nav">
+        <a href="#spots">Spots</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
   </header>
 
-  <!-- SPOTS -->
-  <section id="spots" class="reveal">
-    <h2 class="section-title">Beginner Surf Spots</h2>
-    <p class="section-sub">Gentle breaks near Agadir for your first waves</p>
-    <div class="spots-grid" id="spotsGrid">
-      <!-- Populated by JS -->
-    </div>
-  </section>
+  <main id="top">
 
-  <!-- ABOUT -->
-  <section id="about" class="about-section reveal">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2 class="section-title" style="text-align:left; margin-bottom:1rem;">About Wonderland</h2>
-        <p>Wonderland is your guide to the best beginner-friendly surf spots along the Agadir coast. Whether you're popping up for the first time or looking to build consistency, these breaks offer forgiving waves and a welcoming surf culture.</p>
-        <p>We've researched each spot for wave quality, beginner suitability, facilities, and local vibes — so you can spend less time planning and more time in the water.</p>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="hero-eyebrow">Morocco · Agadir coast</span>
+        <h1 class="hero-title">Wonderland</h1>
+        <p class="hero-sub">
+          A curated guide to the best beginner-friendly surf spots along the Agadir coast — from city beach breaks to Taghazout's gentle point breaks.
+        </p>
+        <a href="#spots" class="hero-cta">Explore the spots</a>
       </div>
-      <div class="about-visual">
-        🏄
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 40 C 180 20, 360 60, 540 40 C 720 20, 900 60, 1080 40 C 1260 20, 1350 50, 1440 40 L 1440 80 L 0 80 Z" fill="#d8cbb2" opacity="0.5"/>
+          <path d="M0 50 C 200 30, 400 70, 600 50 C 800 30, 1000 70, 1200 50 C 1300 40, 1380 55, 1440 50 L 1440 80 L 0 80 Z" fill="#e9dfce" opacity="0.4"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SPOTS -->
+    <section id="spots" class="spots-section reveal">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Where to surf</p>
+          <h2 class="section-title">12 beginner-friendly spots</h2>
+          <p class="section-sub">From Agadir city north to Taghazout, and south toward Tiznit — every break hand-picked for learning surfers.</p>
+        </div>
+        <div class="spots-grid" id="spotsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section reveal">
+      <div class="container about-inner">
+        <p class="about-eyebrow">About Wonderland</p>
+        <h2 class="about-title">Built for first-timers</h2>
+        <p class="about-body">
+          Wonderland gathers the fifty-odd surf breaks within driving distance of Agadir and filters them down to the ones that actually make sense for someone standing on a board for the first time.
+          Every spot is rated for beginner suitability, with notes on bottom type, crowd levels, best season, and where to find a surf school.
+          Research drawn from surf guides, school listings, and local knowledge — updated as conditions and access change.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Wonderland</p>
+      <p class="footer-copy">A surf guide for the Agadir coast. Ride safe.</p>
+      <div class="footer-links">
+        <a href="#spots">Spots</a>
+        <a href="#about">About</a>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <p>Wonderland &mdash; built with ☀️ and 🌊</p>
-    <p style="margin-top:0.5rem;">Data researched and curated for surfers, by surfers.</p>
   </footer>
 
   <script>
-    // ── Surf spots data (will be enriched by @reasercher) ──
+    // ──────────────────────────────────────────────────────
+    //  Surf spots data
+    //  Merged from agadir-beginner-surf-spots.json,
+    //  morocco-beginner-surf-spots.json, and
+    //  researcher-supplied batch 2 (Hash Point, Tifnit,
+    //  Cherry Cherry, Cross, Aglou).
+    // ──────────────────────────────────────────────────────
+
     const spots = [
       {
         emoji: '🏖️',
-        name: 'Crocro Beach',
-        location: 'Agadir — 6 km north of city center',
-        description: 'A sheltered, sandy beach break with small, rolling waves ideal for first-timers. Local surf schools operate here daily.',
+        name: 'Agadir Beach',
+        tag: 'City beach',
+        distance: '0 km — Agadir city centre',
+        description:
+          'The city beach right in Agadir. Gentle, sheltered sandbank waves that are inconsistent but harmless when they fire — a stress-free option for surfing without leaving town.',
+        details: {
+          waveType: 'Sheltered beach break — gentle lefts and rights over sandbanks',
+          typicalSize: 'Waist to shoulder high on good days; often flat or messy outside winter NW swells',
+          bestSeason: 'Winter (Dec–Feb) for NW swells with NE offshore winds; summer mostly too small',
+          bottom: 'Sand — shallow entry, no rocks, no urchins',
+        },
         difficulty: 'Beginner',
-        diffClass: 'diff-beginner'
+        diffClass: 'diff-easy',
+        notes: 'Restaurants, markets, and accommodation are steps away. Low crowd factor. Check the forecast before driving — it is not the most consistent spot, but when it works it is the easiest learner beach in the region.',
       },
+
+      {
+        emoji: '🏄',
+        name: 'Anza',
+        tag: 'Closest break',
+        distance: '5–10 km north of Agadir (~15 min by taxi)',
+        description:
+          'One of the closest quality surf spots to Agadir and remarkably uncrowded even on good days. Multiple peaks along a wide open sand stretch — beginners stay on the sand sections, improvers can work the faster reef shoulder.',
+        details: {
+          waveType: 'Beach break — consistent right-hand waves over sandbanks, multiple peaks',
+          typicalSize: 'Waist to head high; works from ~2 ft swell; rarely hollow or intimidating',
+          bestSeason: 'Winter (Nov–Mar) for NW swells with NE offshore winds; summer brings smaller mellower waves good for beginners',
+          bottom: 'Sand (mid-beach) + reef shoulder on the north side — urchins at low tide, stay on sand at mid-to-high tide',
+        },
+        difficulty: 'Beginner to low-intermediate',
+        diffClass: 'diff-easy',
+        notes: 'Default coaching break for Agadir Surf Club and Blue Waves Surf House. Early morning sessions tend to be cleanest. Water quality can vary after heavy rains — check locally. Several surf houses operate directly on the beach (Anza Peak Surf House, Dinosaur Anza Surf House).',
+      },
+
+      {
+        emoji: '🌊',
+        name: 'Cross',
+        tag: 'Harbor point',
+        distance: 'Agadir harbour area — city side',
+        description:
+          'A point break off the harbour walls that works on the smaller days when the points up north are too much. Good option for a city-based beginner who does not want to drive north.',
+        details: {
+          waveType: 'Point break off the harbour walls — softer, slower on the smaller days',
+          typicalSize: 'Works on the smaller days — best when the northern points are closing out; manageable size range for learners',
+          bestSeason: 'When swell is small to moderate — a fallback option when bigger swells make the Taghazout breaks less beginner-friendly',
+          bottom: 'Rocky harbour walls / point — booties advisable; not a sandy-bottom beach',
+        },
+        difficulty: 'Beginner',
+        diffClass: 'diff-easy',
+        notes: 'Listed as beginner-friendly by Strike Mission. Best when the points up north are too much. City-based option for days when you want to surf without the Taghazout drive.',
+      },
+
+      {
+        emoji: '🏖️',
+        name: 'Cherry Cherry Beach',
+        tag: 'Suburban Inezgane',
+        distance: 'South of Agadir city, Inezgane area',
+        description:
+          'A suburban beach stretch south of Agadir city with waves rarely above head height. Tempered by a patchwork of reefs on either side of the bay — a steady, low-key option for beginners who want to surf without leaving the Agadir area or dealing with Taghazout crowds.',
+        details: {
+          wave_type: 'Beach / reef combo — waves tempered by reefs on either side of the bay',
+          typical_size: 'Rarely above head height — a forgiving, low-energy break',
+          best_season: 'Year-round option; especially good when Taghazout is crowded or conditions are too big up north',
+          bottom: 'Sand with reef patches on either side of the bay — check entry points',
+        },
+        difficulty: 'Beginner',
+        diffClass: 'diff-easy',
+        notes: 'Surf Atlas calls it a regular spot for beginners who want to surf without leaving Agadir or dealing with the Taghazout lineup circus. A solid suburban alternative to the busy north-coast breaks.',
+      },
+
+      {
+        emoji: '🏖️',
+        name: 'Crocro Beach',
+        tag: 'Safety-first teaching beach',
+        distance: '14 km north (Tamraght / Aourir, ~25 min by car)',
+        description:
+          'Popular with surf schools as a safety-first teaching beach. Gentle rights and lefts across a 2 km stretch of soft sand — more room than the crowded Taghazout points, good for families and nervous beginners.',
+        details: {
+          waveType: 'Beach break — gentle rights and lefts, A-frame peaks on smaller swells; multiple peaks across a 2 km stretch',
+          typicalSize: '2–4 ft (0.6–1.2 m) on average; sets up to ~5 ft (1.5 m); ideal range 0.35–1.4 m',
+          bestSeason: 'Sep–Apr for consistency; spring/summer (May–Aug) for smaller gentler beginner conditions',
+          bottom: 'Sand — soft golden sand with a gentle slope; a few crocodile-shaped rock heads at the northern end (stay aware but not in the main surfing area)',
+        },
+        difficulty: 'Beginner to intermediate',
+        diffClass: 'diff-easy',
+        notes: 'Named after the crocodile-shaped headland at its northern end. Surf schools: Crocro Surf Maroc, Ola Surf Maroc. Bus #32 from Agadir stops nearby. Parking near cafes. No formal beach facilities but cafes and surf camps in the immediate area. More room than crowded Taghazout points — good for families, nervous beginners, and mixed-level groups.',
+      },
+
+      {
+        emoji: '🍌',
+        name: 'Banana Point (Aourir)',
+        tag: 'Mellow point break',
+        distance: '~25 km north (Tamraght / Aourir area, ~30 min by car)',
+        description:
+          'One of the most beginner-friendly point breaks in the region — a mellow right-hander that peels gently roughly 90% of the time. A true all-round wave for learning to turn and link manoeuvres.',
+        details: {
+          waveType: 'Sheltered point break — mostly a mellow right-hander that peels gently; occasional pick-up sections on cleaner days',
+          typicalSize: 'Waist to shoulder high most of the time; handles NW swells well',
+          bestSeason: 'Year-round — summer (May–Sep) especially good for beginners with smaller cruisy waves; winter brings more swell but remains manageable; mornings with light ENE winds are prime',
+          bottom: 'Sand with scattered rock plates / cobblestone — generally forgiving but booties advisable for sensitive feet',
+        },
+        difficulty: 'Beginner to low-intermediate',
+        diffClass: 'diff-easy',
+        notes: 'Surf camps and hostels of Tamraght are nearby (Wave Gypsy Surf & Yoga, The Surf Hotel Tamraght). Handles all tides. Can get more performance-oriented on clean larger days but remains approachable. Good overflow option when other spots are crowded.',
+      },
+
+      {
+        emoji: '🏖️',
+        name: 'Banana Beach (Tamraght)',
+        tag: 'Safest beginner beach',
+        distance: '~15 km north (Tamraght village, ~25 min by car)',
+        description:
+          'Widely cited as the safest beginner surf spot in Morocco. Slow, crumbly rights and lefts over sandbars with long whitewater rides — fully sandy from shore to lineup, no reef, no urchins.',
+        details: {
+          waveType: 'Beach break — slow, crumbly rights and lefts over sandbars; long whitewater rides',
+          typicalSize: '1–3 ft (0.3–1 m) most days spring through autumn; up to 4–5 ft on bigger winter swell days',
+          bestSeason: 'Apr–May and Sep–Oct (small, warm, clean); works year-round but summer is calmer and safer for absolute beginners',
+          bottom: 'Sand — fully sandy from shore to lineup, no reef, no urchins',
+        },
+        difficulty: 'Beginner (easy)',
+        diffClass: 'diff-easy',
+        notes: 'Multiple surf schools operate directly on the beach (He\'e Nalu, MoonLight Surf House, Solid Surf House, Zen Surf Morocco). Lifeguards present in peak season. Clean, forgiving waves with minimal rip risk. Best for first-timers, foamies, and nervous improvers. Distinct from Banana Point (the nearby intermediate/advanced point break).',
+      },
+
       {
         emoji: '🌅',
         name: 'Panoramas',
-        location: 'Agadir — south of the Marina',
-        description: 'Consistent soft waves with a wide, uncrowded beach. Great for longboard practice and surf lessons. Cafes and rentals nearby.',
+        tag: 'Default first lesson',
+        distance: '20–24 km north (southern edge of Taghazout, ~30 min by car)',
+        description:
+          'The default first-lesson spot in Taghazout — where the majority of first-timers surf on day one. Mellow, forgiving rights that peel slowly and link into beach sections. Social hub of Taghazout surf culture with cafes and a cliffside terrace.',
+        details: {
+          waveType: 'Right-hand point break / beach break hybrid — mellow, forgiving rights that peel slowly; links into beach sections',
+          typicalSize: '1–4 ft (0.3–1.2 m); best on smaller swells when northern point breaks are closing out; handles up to ~1.5 m',
+          bestSeason: 'Oct–Apr (prime surf season); Oct and Mar–Apr ideal for beginners — smaller, more manageable waves',
+          bottom: 'Mostly sand with rocky sections near the point (check at low tide before paddling out)',
+        },
+        difficulty: 'Beginner to intermediate',
+        diffClass: 'diff-medium',
+        notes: 'Numerous certified surf schools operate directly from the beach. Moderate crowds — busier when bigger swells push beginners here from Hash Point. Best on W–NW swell with light morning wind. Free parking near the cafe. Panorama Restaurant and a cliffside terrace overlook the break.',
+      },
+
+      {
+        emoji: '🌀',
+        name: 'Hash Point',
+        tag: 'Taghazout village break',
+        distance: 'Taghazout village — walk-to-with-board-under-arm',
+        description:
+          'A wedgy right-hander that peels right below the village\'s rooftop cafes. Soft, mellow, and convenient — one of the three main Taghazout breaks alongside Panoramas and the points. Surfstar lists it as beginner–intermediate.',
+        details: {
+          waveType: 'Wedgy right-hander — soft, mellow peel right below the village rooftops',
+          typicalSize: 'Soft and mellow — suited to smaller swells; one of the gentler Taghazout breaks',
+          bestSeason: 'Year-round option within Taghazout; best on smaller to medium swells when the points are working',
+          bottom: 'Sand / point combo — typical Taghazout mix; check conditions at the day',
+        },
+        difficulty: 'Beginner to intermediate',
+        diffClass: 'diff-medium',
+        notes: 'One of the three main Taghazout breaks alongside Panoramas and the points. Walk-to-with-board-under-arm convenience from the village. Rooftop cafes above the break. Surfstar lists it as beginner–intermediate.',
+      },
+
+      {
+        emoji: '🦀',
+        name: "Devil's Rock (inside whitewater)",
+        tag: 'Protected teaching wave',
+        distance: '~15 km north (Tamraght, just north of Oued Tamraght river mouth, ~25 min by car)',
+        description:
+          "The inside whitewater reform is one of the best beginner teaching waves in the region — a gentle, slow-rolling broken wave protected from strong lateral currents by the rocky headland. The famous Devil's Rock point break itself is for intermediates and up — beginners stick to the inside beach break area.",
+        details: {
+          waveType: 'Beach break with a rocky point — inside/whitewater reform is a gentle slow-rolling broken wave ideal for day 1–3 learners; outer point is faster (intermediate) and not for beginners',
+          typicalSize: 'Whitewater section: small to waist-high rollers; outer point: 2–6 ft on good days',
+          bestSeason: 'Year-round; spring/summer for the safest beginner conditions; Oct–Apr when swell is most consistent',
+          bottom: 'Sand (inside whitewater area) with rocky outcrops visible at low tide at the point (protection from currents, not in the learner zone)',
+        },
+        difficulty: 'Beginner (inside whitewater) / Intermediate (outer point — not for beginners)',
+        diffClass: 'diff-easy',
+        notes: 'Popular with Tamraght surf schools (Endless Wave Morocco, He\'e Nalu, Solid Surf House). Less crowded than Banana Point for lessons. The distinctive rock formation at low tide gives the spot its name. Stick to the inside area — the outer point is for intermediates and up.',
+      },
+
+      {
+        emoji: '🏖️',
+        name: 'Tifnit',
+        tag: 'Uncrowded south',
+        distance: '~60 min south of Agadir (small fishing village)',
+        description:
+          'A small fishing village about an hour south of Agadir with a sandy beach break, fun peaks, and waves that are often empty. A good choice if you want a session away from the Taghazout lineup circus.',
+        details: {
+          waveType: 'Sandy beach break — fun peaks along a quiet stretch of coast',
+          typicalSize: 'Fun peaks on a range of swells; works for beginners on the smaller days',
+          bestSeason: 'Year-round; especially good when you want a quieter session away from Taghazout crowds',
+          bottom: 'Sand — beach break, forgiving bottom for learners',
+        },
         difficulty: 'Beginner',
-        diffClass: 'diff-beginner'
+        diffClass: 'diff-easy',
+        notes: 'Strike Mission lists it as beginner and "uncrowded." Good if you want a session away from the Taghazout lineup circus. A quiet south-coast option for days when the north is busy.',
       },
+
       {
-        emoji: '🍌',
-        name: 'Banana Point',
-        location: 'Taghazout — 30 km south of Agadir',
-        description: 'A famous point break with a gentle left that peels slowly. Popular with beginners and longboarders. Plenty of guesthouses and surf camps in Taghazout village.',
-        difficulty: 'Beginner–Intermediate',
-        diffClass: 'diff-beginner'
-      },
-      {
-        emoji: '🏄',
-        name: 'Imsouane',
-        location: 'Imsouane — 50 km south of Agadir',
-        description: 'A laid-back fishing village with a long, slow-rolling point break. The "Boiler" offers forgiving waves for beginners; the main break suits intermediate riders.',
-        difficulty: 'Beginner–Intermediate',
-        diffClass: 'diff-intermediate'
-      },
-      {
-        emoji: '🐚',
-        name: 'Anza',
-        location: 'Anza — between Taghazout and Imsouane',
-        description: 'A quiet beach break with sandy bottom and gentle waves. Almost no crowds. Perfect for absolute beginners who want peace and space to practice.',
+        emoji: '🏖️',
+        name: 'Aglou Beach',
+        tag: 'Underrated south',
+        distance: '~90 min south near Tiznit',
+        description:
+          'A long, flat beach near Tiznit with consistent low-energy waves — underrated for beginners and almost never crowded. Named in Surfari\'s "safest spot" guide as a genuine beginner option if you are willing to drive a bit.',
+        details: {
+          waveType: 'Long, flat beach — consistent low-energy waves across a wide stretch',
+          typicalSize: 'Consistent low-energy waves — gentle and forgiving for beginners',
+          bestSeason: 'Year-round; a good option when you want uncrowded beginner waves and are willing to drive south',
+          bottom: 'Sand — long flat beach, forgiving for learners',
+        },
         difficulty: 'Beginner',
-        diffClass: 'diff-beginner'
-      }
+        diffClass: 'diff-easy',
+        notes: 'Surfari\'s "safest spot" guide names it as a genuine beginner option if you are willing to drive a bit. Almost never crowded. Underrated — most beginners never make it this far south, which is exactly what makes it attractive.',
+      },
     ];
 
-    // ── Render spots ──
+    // ──────────────────────────────────────────────────────
+    //  Difficulty colour / label helpers
+    // ──────────────────────────────────────────────────────
+
+    function difficultyMeta(label) {
+      const lower = label.toLowerCase();
+      if (lower.includes('easy') || lower.includes('beginner') && !lower.includes('intermediate') && !lower.includes('improver')) {
+        return { dot: 'diff-easy', short: 'Easy' };
+      }
+      if (lower.includes('intermediate') || lower.includes('improver') || lower.includes('low-intermediate')) {
+        return { dot: 'diff-medium', short: 'Intermediate' };
+      }
+      if (lower.includes('hard') || lower.includes('advanced')) {
+        return { dot: 'diff-hard', short: 'Advanced' };
+      }
+      return { dot: 'diff-easy', short: 'Beginner' };
+    }
+
+    // ──────────────────────────────────────────────────────
+    //  Render
+    // ──────────────────────────────────────────────────────
+
     const grid = document.getElementById('spotsGrid');
-    spots.forEach(spot => {
-      const card = document.createElement('div');
+
+    function renderDetails(d) {
+      const items = [
+        { label: 'Wave',   key: 'waveType'    },
+        { label: 'Size',   key: 'typicalSize' },
+        { label: 'Season', key: 'bestSeason'  },
+        { label: 'Bottom', key: 'bottom'      },
+      ];
+      const html = items.map(item => {
+        const val = d[item.key] || '';
+        if (!val) return '';
+        return `<dt>${item.label}</dt><dd>${val}</dd>`;
+      }).join('');
+      return `<dl class="spot-details">${html}</dl>`;
+    }
+
+    function renderSpot(s) {
+      const { dot, short: diffLabel } = difficultyMeta(s.difficulty);
+      const card = document.createElement('article');
       card.className = 'spot-card';
       card.innerHTML = `
-        <span class="emoji">${spot.emoji}</span>
-        <h3>${spot.name}</h3>
-        <p class="location">${spot.location}</p>
-        <p>${spot.description}</p>
-        <span class="difficulty ${spot.diffClass}">${spot.difficulty}</span>
+        <div class="spot-meta">
+          <span class="spot-emoji">${s.emoji}</span>
+          <span class="spot-tag">${s.tag}</span>
+          <span class="spot-distance">${s.distance}</span>
+        </div>
+        <h3 class="spot-name">${s.name}</h3>
+        <p class="spot-desc">${s.description}</p>
+        ${renderDetails(s.details)}
+        <div class="spot-footer">
+          <span class="spot-difficulty">
+            <span class="difficulty-dot ${dot}"></span>
+            ${diffLabel}
+          </span>
+        </div>
+        <details style="margin-top:var(--space-1)">
+          <summary style="cursor:pointer;font-size:0.78rem;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:500">Notes</summary>
+          <p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin-top:var(--space-2)">${s.notes}</p>
+        </details>
       `;
       grid.appendChild(card);
-    });
+    }
 
-    // ── Scroll reveal ──
+    spots.forEach(renderSpot);
+
+    // ──────────────────────────────────────────────────────
+    //  Scroll reveal
+    // ──────────────────────────────────────────────────────
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
