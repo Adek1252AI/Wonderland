@@ -18,6 +18,7 @@
       <a href="#top" class="logo">Wonderland</a>
       <nav class="site-nav">
         <a href="#spots">Spots</a>
+        <a href="#techniques">Techniques</a>
         <a href="#about">About</a>
       </nav>
     </div>
@@ -55,6 +56,18 @@
       </div>
     </section>
 
+    <!-- TECHNIQUES -->
+    <section id="techniques" class="techniques-section reveal">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Basics</p>
+          <h2 class="section-title">7 techniques to learn first</h2>
+          <p class="section-sub">The fundamentals every beginner should practise — in roughly the order you'll meet them in the water.</p>
+        </div>
+        <div class="techniques-grid" id="techniquesGrid"></div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section id="about" class="about-section reveal">
       <div class="container about-inner">
@@ -76,6 +89,7 @@
       <p class="footer-copy">A surf guide for the Agadir coast. Ride safe.</p>
       <div class="footer-links">
         <a href="#spots">Spots</a>
+        <a href="#techniques">Techniques</a>
         <a href="#about">About</a>
       </div>
     </div>
@@ -374,13 +388,82 @@
       grid.appendChild(card);
     }
 
-    spots.forEach(renderSpot);
 
     // ──────────────────────────────────────────────────────
-    //  Init — render spots immediately, then reveal
+    //  Techniques data
+    //  7 beginner techniques — fundamentals in roughly the
+    //  order you'll meet them in the water.
+    // ──────────────────────────────────────────────────────
+
+    const techniques = [
+      {
+        step: '01',
+        title: 'Paddling',
+        desc: 'Lie centred on the board, chest lifted, feet together. Reach forward with alternating arms using a long, smooth stroke — elbows high, fingers together. Keep the board planing flat; too far forward and the nose dives, too far back and you slow down. Build the rhythm before you chase any wave.',
+      },
+      {
+        step: '02',
+        title: 'Popping Up',
+        desc: 'From the prone position, hands flat at your ribs, push up in one fluid motion and bring both feet under you — back foot first, then front — landing in a low crouch with knees bent, eyes forward, arms out for balance. Practise on dry land first; the muscle memory will save you in the whitewash.',
+      },
+      {
+        step: '03',
+        title: 'Catching Waves',
+        desc: 'Paddle toward the breaking wave early and commit. Feel the board lift and accelerate — that\'s the moment. Don\'t hesitate or pull back; a late pop-up means a missed wave. Look where you want to go, not at your feet. Whitewater broken waves are your first catch.',
+      },
+      {
+        step: '04',
+        title: 'Stance & Balance',
+        desc: 'Feet shoulder-width apart, weight over the centre-line of the board, knees bent like shock absorbers. Arms out, shoulders square, eyes on the horizon — never down at the board. A low centre of gravity keeps you on the board; a stiff upright posture sends you into the water.',
+      },
+      {
+        step: '05',
+        title: 'Steering & Trim',
+        desc: 'Once you\'re riding, small weight shifts do the work. Pressure on the back foot slows and lets the wave catch up; pressure on the front foot speeds up. Lean your shoulders to turn — the board follows your body, not your arms. Stay in the pocket, the steepest part of the wave face.',
+      },
+      {
+        step: '06',
+        title: 'Bottom Turn',
+        desc: 'The first real turn — carving up the face of the wave after the drop. Look toward where you want to go, lean into the turn with your inside rail, and use your back foot to drive the tail around. It sets up every other manoeuvre you\'ll learn, so get comfortable with it early.',
+      },
+      {
+        step: '07',
+        title: 'Duck Dive / Turtle Roll',
+        desc: 'Getting past breaking waves without getting cleaned out. On a shortboard, push the nose under the whitewater with your hands and use your knee to sink the tail — that\'s a duck dive. On a longboard, roll the board upside down and let the wave pass over you — that\'s the turtle roll. Both save your energy and your position in the lineup.',
+      },
+    ];
+
+    const techGrid = document.getElementById('techniquesGrid');
+
+    function renderTechnique(t) {
+      const card = document.createElement('article');
+      card.className = 'technique-card';
+      card.innerHTML = `
+        <span class="technique-step">${t.step}</span>
+        <h3 class="technique-title">${t.title}</h3>
+        <p class="technique-desc">${t.desc}</p>
+      `;
+      techGrid.appendChild(card);
+    }
+
+    techniques.forEach(renderTechnique);
+
     // ──────────────────────────────────────────────────────
 
     spots.forEach(renderSpot);
+
+    // IntersectionObserver for scroll reveal
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
 
     // Wait for layout to settle, then trigger reveal on everything
     // Safari on iOS needs the cards to exist in the DOM before the

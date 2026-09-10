@@ -476,6 +476,78 @@ ul, ol { list-style: none; }
   .spot-distance { margin-left: 0; }
 }
 
+/* ---------- Techniques section ---------- */
+.techniques-section {
+  padding-block: var(--space-20);
+  background: var(--surface-soft);
+  border-top: 1px solid var(--sand-200);
+  border-bottom: 1px solid var(--sand-200);
+}
+
+.techniques-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 600px) {
+  .techniques-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .techniques-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.technique-card {
+  background: var(--surface);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: transform var(--transition), box-shadow var(--transition),
+              border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.technique-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -12px rgba(20,48,58,0.12);
+  border-color: var(--sea-200);
+}
+
+.technique-step {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--sea-600);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.technique-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--deep);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.technique-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* Techniques mobile overrides */
+@media (max-width: 480px) {
+  .techniques-section { padding-block: var(--space-12); }
+  .technique-step { font-size: 1.25rem; }
+  .technique-title { font-size: 1.15rem; }
+}
+
 /* ---------- Scroll reveal ---------- */
 .reveal {
   opacity: 0;
