@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wonderland — surf, sand & stillness</title>
+  <meta name="description" content="A minimal surf guide. Waves, beaches, and the quiet between.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">Wonderland</a>
+      <nav class="site-nav">
+        <a href="#spots">Spots</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Agadir, Morocco</p>
+        <h1 class="hero-title">where the ocean<br>meets the stillness</h1>
+        <p class="hero-sub">A quiet collection of surf spots — built for the longboarder, the beginner, the wanderer. More soon.</p>
+        <a href="#spots" class="hero-cta">Explore spots</a>
+      </div>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z" fill="currentColor">
+            <animate attributeName="d"
+              values="M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z;
+                      M0,60 C360,0 720,120 1080,60 C1260,30 1380,90 1440,60 L1440,120 L0,120 Z;
+                      M0,60 C360,120 720,0 1080,60 C1260,90 1380,70 1440,60 L1440,120 L0,120 Z"
+              dur="8s" repeatCount="indefinite"/>
+          </path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SURF SPOTS — content slot -->
+    <section class="spots-section" id="spots">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-eyebrow">Beginner-friendly</p>
+          <h2 class="section-title">Five spots near Agadir</h2>
+          <p class="section-sub">Gentle waves, sandy bottoms, and room to learn. Curated by <span class="attribution">@reasercher</span>.</p>
+        </header>
+
+        <!--
+          ============================================================
+          SURF SPOT CARDS — slot content here
+          ============================================================
+          Each spot is a <article class="spot-card"> with this structure:
+
+          <article class="spot-card">
+            <div class="spot-card-inner">
+              <div class="spot-meta">
+                <span class="spot-tag">Beginner</span>
+                <span class="spot-distance">12 km from Agadir</span>
+              </div>
+              <h3 class="spot-name">Spot Name</h3>
+              <p class="spot-desc">
+                A short, atmospheric description of the spot — the vibe,
+                the wave, who it suits.
+              </p>
+              <dl class="spot-details">
+                <dt>Wave</dt>
+                <dd>Gentle beach break</dd>
+                <dt>Bottom</dt>
+                <dd>Sand</dd>
+                <dt>Best for</dt>
+                <dd>Longboard, learning</dd>
+                <dt>Season</dt>
+                <dd>April – October</dd>
+              </dl>
+              <div class="spot-footer">
+                <span class="spot-difficulty">
+                  <span class="difficulty-dot difficulty-easy" aria-hidden="true"></span>
+                  Easy
+                </span>
+              </div>
+            </div>
+          </article>
+
+          Repeat per spot. The CSS handles layout — add as many
+          <article class="spot-card"> blocks as needed.
+        -->
+
+        <!-- PLACEHOLDER CARD — remove when @reasercher delivers content -->
+        <article class="spot-card placeholder-card">
+          <div class="spot-card-inner">
+            <div class="spot-meta">
+              <span class="spot-tag">Placeholder</span>
+            </div>
+            <h3 class="spot-name">Spot name goes here</h3>
+            <p class="spot-desc">
+              A short description of this surf spot — the vibe, the wave,
+              who it suits, and why it made the list.
+            </p>
+            <dl class="spot-details">
+              <dt>Wave</dt>
+              <dd>Type of break</dd>
+              <dt>Bottom</dt>
+              <dd>Sand / reef / rocks</dd>
+              <dt>Best for</dt>
+              <dd>Board type &amp; level</dd>
+              <dt>Season</dt>
+              <dd>When to go</dd>
+            </dl>
+            <div class="spot-footer">
+              <span class="spot-difficulty">
+                <span class="difficulty-dot difficulty-medium" aria-hidden="true"></span>
+                Medium
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ABOUT / MISSION -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-inner">
+          <p class="about-eyebrow">the idea</p>
+          <h2 class="about-title">not a guide — a feeling</h2>
+          <p class="about-body">
+            Wonderland is a small, slow page for people who surf, or want to,
+            near Agadir. No noise. Just spots, notes, and the knowledge that
+            the next set is always coming.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-brand">Wonderland</p>
+      <p class="footer-copy">A minimal surf page &middot; Agadir, Morocco &middot; Built for the beach.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

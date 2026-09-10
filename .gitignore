@@ -1,0 +1,11 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Build / node (not used here, but safe)
+node_modules/
+dist/
