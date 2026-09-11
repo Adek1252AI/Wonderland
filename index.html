@@ -19,6 +19,7 @@
       <nav class="site-nav">
         <a href="#spots">Spots</a>
         <a href="#techniques">Techniques</a>
+        <a href="#attractions">Attractions</a>
         <a href="#about">About</a>
       </nav>
     </div>
@@ -65,6 +66,35 @@
           <p class="section-sub">The fundamentals every beginner should practise — in roughly the order you'll meet them in the water.</p>
         </div>
         <div class="techniques-grid" id="techniquesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ATTRACTIONS -->
+    <section id="attractions" class="attractions-section reveal">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Beyond surfing</p>
+          <h2 class="section-title">Agadir &amp; beyond</h2>
+          <p class="section-sub">Something for when you're not in the water — day trips, city sights, markets, and the food scene that puts Agadir on the map.</p>
+        </div>
+
+        <!-- Sport & Adventure -->
+        <div class="attractions-subsection">
+          <h3 class="subsection-title">Sport &amp; adventure</h3>
+          <div class="attractions-grid" id="attractionsSportGrid"></div>
+        </div>
+
+        <!-- Places to Visit -->
+        <div class="attractions-subsection" style="margin-top:var(--space-12)">
+          <h3 class="subsection-title">Places to visit</h3>
+          <div class="attractions-grid" id="attractionsPlacesGrid"></div>
+        </div>
+
+        <!-- Where to Eat -->
+        <div class="attractions-subsection" style="margin-top:var(--space-12)">
+          <h3 class="subsection-title">Where to eat</h3>
+          <div class="food-section" id="foodSection"></div>
+        </div>
       </div>
     </section>
 
@@ -471,6 +501,187 @@
     }
 
     techniques.forEach(renderTechnique);
+
+    // ──────────────────────────────────────────────────────
+    //  Attractions data — Agadir beyond surfing
+    //  3 subcategories: Sport & Adventure, Places to Visit,
+    //  Where to Eat. Condensed from reasercher's 3 research
+    //  chunks. Full research in /research/.
+    // ──────────────────────────────────────────────────────
+
+    const attractions = {
+      sport: [
+        {
+          emoji: '🪁',
+          title: 'Kitesurfing & wingfoil',
+          desc: 'Agadir Bay picks up NW thermal wind in the afternoons — 12-20 knots, year-round though less reliable than Essaouira. Surf & Chill Agadir runs lessons: 2-hour session from €60, beginners need 3-5 sessions. Wingfoil and paddleboard also available. Skip July-August — beaches crowded, no designated kite area.',
+        },
+        {
+          emoji: '🏍️',
+          title: 'Quad biking & ATV',
+          desc: 'The Agadir hinterland is packed with argan groves, eucalyptus forests, dry riverbeds, small dunes, and Berber villages — perfect for guided off-road tours. No licence needed. 2-hour quad tour €25-50, half-day buggy €50-100. Sunset rides are the favourite. Operators all over town — Terre Mer Adventure, Ecolodge Adventures, and dozens more.',
+        },
+        {
+          emoji: '🐪',
+          title: 'Camel trekking',
+          desc: 'Beach camel rides at sunset or morning — 1-2 hours, €15-30 per person. Longer desert treks into the Souss countryside for more immersion. Often packaged with quad biking or horseback. Simple, atmospheric, great for photos on the sand.',
+        },
+        {
+          emoji: '🪂',
+          title: 'Paragliding',
+          desc: 'Tandem flights from Dweira Beach, south of Agadir — 10-15 minutes over the Atlantic with pilots who have 15+ years experience. From €70 per flight, up to €120+ for longer. Includes hotel pickup, safety gear, optional GoPro. Age 4 to 94. Parapente Agadir runs daily weather checks. Paramotoring also available for a motorised option.',
+        },
+        {
+          emoji: '🥾',
+          title: 'Hiking & nature walks',
+          desc: 'Paradise Valley (Taghazout area) is the standout — a palm-lined gorge with turquoise natural pools and waterfalls. 3-5 hours on site, free entry, 35-60 km north. Also: Souss Massa National Park (flamingos, Dorcas gazelle, 33,800 hectares), coastal walks from Taghazout to Aglou, and the Anti-Atlas foothills for longer treks.',
+        },
+        {
+          emoji: '⛵',
+          title: 'Boat trips & fishing',
+          desc: 'Half-day charters from Agadir Marina — 5 hours, fishing gear provided, swimming stop, grilled fish BBQ on board. €45-150 per person depending on boat. Agyadino Tours, Immersi Travel, GetAgadir all run them. Deep sea fishing charters for experienced anglers. Sunset scenic cruises also available — no fishing, just views.',
+        },
+      ],
+      places: [
+        {
+          emoji: '🏖️',
+          title: 'Beach & Corniche',
+          desc: '6-10 km of golden sand with a 4 km palm-lined promenade — walking, jogging, cycling, free outdoor gym stations, ice-cream kiosks, playgrounds. Best at sunrise (locals have the beach) and sunset (the whole city comes out). Calmest for swimming late spring to early autumn. 29 entrances from the promenade, lifeguards in season.',
+        },
+        {
+          emoji: '⛵',
+          title: 'Agadir Marina',
+          desc: 'Modern waterfront at the north end of the beach — yachts, fishing boats, restaurants, cafes, boutiques. Most European-feeling part of Agadir. Fish market inside the harbour gates with fresh sardines and red snapper at rock-bottom prices — best lunch spot in the city. Launch point for boat trips and sunset cruises.',
+        },
+        {
+          emoji: '🏰',
+          title: 'Agadir Oufella Kasbah',
+          desc: '16th-century Saadian fortress built in 1540, destroyed in the 1960 earthquake that wiped out the city. Ruins only remained — now fully restored and reopened to the public (February 2024). Spectacular panoramic views of the bay, marina, and the Atlantic at sunset. The \"God, Country, King\" motto carved into the hillside is lit at night. 100 DH adults, free for 1960 survivors. Daily 10am-7pm.',
+        },
+        {
+          emoji: '🌅',
+          title: 'Agadir Cable Car',
+          desc: 'Morocco\'s first cable car — 6-minute trip, 1,700 metres, connecting the city to the Kasbah. Built by Garaventa Doppelmayr (Swiss-Austrian), opened 2022. Panoramic views of the bay, ocean, promenade, and port. LED-lit cabins at night. ~42.80 USD via Civitatis (includes hotel pickup, English-speaking driver). Wheelchair accessible. Phase 2 planned to Danialand amusement park.',
+        },
+        {
+          emoji: '🛍️',
+          title: 'Souk El Had',
+          desc: 'One of North Africa\'s largest markets — ~6,000 stalls across 13 hectares in a walled compound. Organised by section: spices, argan oil, Berber jewellery, leather, ceramics, fresh produce, clothing. Open daily except Monday, 6am-8pm. 1 MAD entry. This is where Agadir shops, not where it sells to tourists — relaxed, prices start fair, gentle bargaining. Argan oil is the signature buy, cheap here compared to Marrakech.',
+        },
+        {
+          emoji: '🐊',
+          title: 'Crocoparc',
+          desc: 'Zooological park in Drarga on the Agadir-Marrakech highway — 325 Nile crocodiles, some over 4 metres and 150 kg. Also giant tortoises, iguanas, pythons, anacondas, marmosets, and 4 hectares of botanical gardens. New zipline over crocodile enclosures since July 2025 — a first in Morocco. 100 DH adults, 70 DH children (3-12). ~20 min from the Corniche. Open 7/7, 10am-8pm.',
+        },
+      ],
+      food: {
+        areas: [
+          { name: 'The Port (Grill Row)', tip: 'Pick your fish off the ice, it\'s weighed and grilled over charcoal. Cash only. Busiest and freshest at lunch (morning boats deliver by 10am). Sardines 25-45 MAD/plate, full meal 60-120 MAD/person. Always fix the by-weight price before cooking.' },
+          { name: 'Souk El Had', tip: 'Morocco\'s largest covered market — 6,000 stalls. Food section has cooked-food stalls, soup stands (lentil soup 0.70 DH!), fresh juices 8-12 DH, pastilla and pastries 3-5 DH each. Open daily except Monday. Go in the morning.' },
+          { name: 'Talborjt neighbourhood', tip: 'The old city centre — 15 minutes from the beach but a different world. Local restaurants under 80 MAD. Jour et Nuit and Dar Tajine are local favourites. Cash only at most places. This is the real Agadir, away from the tourist strip.' },
+          { name: 'Corniche (Beach Promenade)', tip: '4-10 km of palm-lined boulevard with international restaurants, fresh seafood, grilled fish. 100-300 MAD per person for a main + drink. 20-40% more than port/Talborjt — but the sunset terrace dinners are worth the premium at least once.' },
+          { name: 'Marina (Port de Plaisance)', tip: 'Upscale dining around the yacht harbour — table service, cocktails, smart ambiance. 150-300 MAD/head with drink. Takes cards, keeps longer hours. Good for couples and families who want table service and menus beyond fish.' },
+        ],
+        dishes: [
+          'Grilled sardines — THE Agadir dish. Atlantic sardines grilled whole over charcoal with cumin, salt, lemon. 20-45 MAD at the port, 60-100 MAD at tourist spots. Eat where locals eat, not the beachfront tourist traps.',
+          'Whole grilled fish — Sole, sea bream, or sea bass picked by weight off the ice at port grill stalls. 90-180 MAD by weight. Always agree the price before cooking.',
+          'Sardine tagine — Slow-cooked sardines in tomato, preserved lemon, green olive, and herb sauce. Deeply Moroccan. Eat with khobz bread.',
+          'Tagine — Slow-cooked stew in a conical clay pot. Agadir variations: lamb with prunes and almonds, chicken with preserved lemon and olives, vegetable tagine with carrots, zucchini, chickpeas. Argan oil is the local signature. 30-90 MAD.',
+          'Couscous — The national dish, traditionally Friday. Souss couscous is known for its variety of vegetables — seven-veg is the classic. 40-80 MAD.',
+          'Mechoui — Whole lamb slow-roasted until melt-in-your-mouth tender. Celebratory dish. 700-1,500 MAD (€8-18) for shoulder or spit-roasted pieces. Best at a proper mechoui restaurant where you watch the process.',
+          'Amlou — The signature Souss breakfast: roasted almonds, argan oil, and honey spread on fresh bread. The breakfast of the region. Available at argan cooperatives, breakfast cafés, and Souk El Had.',
+          'Harira — Hearty tomato-lentil-chickpea soup with meat, legumes, and vegetables. Traditionally for Ramadan but available year-round. The cheapest filling soup in town — 4-15 MAD per bowl.',
+        ],
+        budget: [
+          ['Street food meal', '10-40 MAD', '€1-4', 'Msemen+honey, sardines, brochettes, harira'],
+          ['Local restaurant (Talborjt)', '30-90 MAD', '€3-9', 'Tagine, grilled chicken, couscous'],
+          ['Port grill meal', '60-120 MAD', '€6-12', 'Pick-your-fish, grilled, with bread/salad/lemon'],
+          ['Mid-range restaurant', '60-150 MAD', '€6-15', 'Fish tagine, sit-down, Jour et Nuit, Dar Tajine'],
+          ['Corniche restaurant', '120-300 MAD', '€12-30', 'Seafood platter, main + drink, sunset view'],
+          ['Marina restaurant', '150-300 MAD', '€15-30', 'Table service, cocktails, smart dinner'],
+          ['Upscale / special occasion', '200-500 MAD', '€20-50', 'Pure Passion, Le Jardin d\'Eau'],
+          ['Hotel restaurant', '600+ MAD', '€60+', 'Buffet or à la carte, international'],
+        ],
+        hints: [
+          'Eat where locals eat, not where tourists are herded. Talborjt and Souk El Had are the real Agadir. Corniche and Marina restaurants are 20-40% more expensive for the same fish.',
+          'Port grills are cash-only. Marina and Corniche restaurants usually take cards.',
+          'Always agree the by-weight fish price before it\'s cooked. Be politely firm if a stall is vague. Pick stalls busy with Moroccan families for best value and freshness.',
+          'Lunch is the freshest window for fish — morning boats deliver by 10am, grills most active noon-2pm.',
+          'Local eating times differ. Lunch from 1:30pm onwards. Dinner often 8-10pm. Adjust or you\'ll find places closed.',
+          'Buy culinary argan oil (roasted, darker) not cosmetic (raw, lighter) — very different flavour for cooking.',
+          'For a week\'s groceries for two: under €50. Groceries are very cheap compared to Europe.',
+          'Grilled sardines at the port are Agadir\'s identity — this coastal city has one of the most important sardine ports in the Atlantic. The dish you must not miss is the grilled sardine, not the tagine, not the couscous, not anything with a photo on a tourist menu.',
+        ],
+      },
+    };
+
+    // ──────────────────────────────────────────────────────
+    //  Attractions render
+    // ──────────────────────────────────────────────────────
+
+    function renderSpotCard(item, gridId) {
+      const grid = document.getElementById(gridId);
+      const card = document.createElement('article');
+      card.className = 'attraction-card';
+      card.innerHTML = `
+        <span class="attraction-emoji">${item.emoji}</span>
+        <h4 class="attraction-title">${item.title}</h4>
+        <p class="attraction-desc">${item.desc}</p>
+      `;
+      grid.appendChild(card);
+    }
+
+    // Sport cards
+    attractions.sport.forEach(s => renderSpotCard(s, 'attractionsSportGrid'));
+
+    // Places cards
+    attractions.places.forEach(p => renderSpotCard(p, 'attractionsPlacesGrid'));
+
+    // Food section — areas, dishes, budget table, tips
+    (function renderFood() {
+      const section = document.getElementById('foodSection');
+
+      // Areas
+      let areasHtml = '<div class="food-areas">';
+      attractions.food.areas.forEach(a => {
+        areasHtml += `          <div class="food-area">
+            <div class="food-area-label">${a.name}</div>
+            <p class="food-area-tip">${a.tip}</p>
+          </div>`;
+      });
+      areasHtml += '\n</div>';
+
+      // Dishes
+      let dishesHtml = `      <div class="food-dishes">
+        <p class="food-dishes-label">Must-try dishes</p>
+        <ol class="food-dishes-list">`;
+      attractions.food.dishes.forEach(d => {
+        dishesHtml += `\n          <li class="food-dish">${d}</li>`;
+      });
+      dishesHtml += '\n        </ol>\n      </div>';
+
+      // Budget table
+      let budgetHtml = `      <div class="food-budget">
+        <p class="food-budget-label">Budget guide</p>
+        <table class="food-budget-table">
+          <thead><tr><th>Category</th><th>MAD</th><th>EUR</th><th>Example</th></tr></thead>
+          <tbody>`;
+      attractions.food.budget.forEach(row => {
+        budgetHtml += `\n            <tr><td>${row[0]}</td><td class="budget-mad">${row[1]}</td><td class="budget-eur">${row[2]}</td><td>${row[3]}</td></tr>`;
+      });
+      budgetHtml += `\n          </tbody>\n        </table>\n      </div>`;
+
+      // Tips
+      let tipsHtml = `      <div class="food-tips">
+        <p class="food-tips-label">Practical tips</p>
+        <ul class="food-tips-list">`;
+      attractions.food.hints.forEach(h => {
+        tipsHtml += `\n          <li class="food-tip">${h}</li>`;
+      });
+      tipsHtml += `\n        </ul>\n      </div>`;
+
+      section.innerHTML = areasHtml + dishesHtml + budgetHtml + tipsHtml;
+    })();
 
     // ──────────────────────────────────────────────────────
 

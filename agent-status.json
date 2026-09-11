@@ -1,17 +1,18 @@
 {
-  "last_updated": "2026-09-11T10:05:00Z",
+  "last_updated": "2026-09-11T10:15:00Z",
   "agents": [
     {
       "name": "builder",
       "status": "working",
-      "current_task": "Fix technique images for mobile (iOS) — integrate @reasercher's SVGs",
+      "current_task": "iOS image fix complete — attractions section built in index.html (212 lines unstaged)",
       "started_at": "2026-09-11T08:40:00Z",
-      "last_update": "2026-09-11T10:05:00Z",
+      "last_update": "2026-09-11T10:15:00Z",
       "chunks": [
         {"name": "Build HTML structure for techniques section", "status": "done", "message": "Section skeleton added"},
         {"name": "Style with site CSS (minimalistic surf-vibe)", "status": "done", "message": "Responsive layout applied"},
         {"name": "Test on mobile browsers", "status": "done", "message": "Desktop + mobile test complete"},
-        {"name": "Integrate images from @reasercher", "status": "in_progress", "message": "Fixing iOS mobile image visibility — investigating references"}
+        {"name": "Fix iOS mobile image visibility (preload + disable scroll-reveal on mobile)", "status": "done", "message": "Commit a74048c live — preload script, min-height:1px, scroll-reveal disabled on mobile ≤480px"},
+        {"name": "Integrate @reasercher's attraction research into site", "status": "in_progress", "message": "All 3 subcategories built in index.html (212 lines unstaged) — Sport & Adventure (6 items), Places to Visit (7 categories), Where to Eat (full data). Awaiting commit."}
       ],
       "errors": []
     },

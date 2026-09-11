@@ -581,3 +581,220 @@ ul, ol { list-style: none; }
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ---------- Attractions section ---------- */
+.attractions-section {
+  padding-block: var(--space-20);
+  background: var(--surface);
+  border-top: 1px solid var(--sand-200);
+  border-bottom: 1px solid var(--sand-200);
+}
+
+.attractions-subsection {
+  margin-bottom: var(--space-12);
+}
+
+.subsection-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--deep);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-6);
+}
+
+.attractions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 500px) {
+  .attractions-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 800px) {
+  .attractions-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.attraction-card {
+  background: var(--surface-soft);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  transition: transform var(--transition), box-shadow var(--transition),
+              border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.attraction-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -12px rgba(20,48,58,0.10);
+  border-color: var(--sea-200);
+}
+
+.attraction-emoji {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.attraction-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--deep);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.attraction-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Food section */
+.food-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.food-areas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 500px) {
+  .food-areas { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 800px) {
+  .food-areas { grid-template-columns: repeat(3, 1fr); }
+}
+
+.food-area {
+  background: var(--surface-soft);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-5);
+}
+
+.food-area-label {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--deep);
+  margin-bottom: var(--space-2);
+}
+
+.food-area-tip {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.food-dishes-label,
+.food-budget-label,
+.food-tips-label {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--deep);
+  margin-bottom: var(--space-3);
+}
+
+.food-dishes-list {
+  padding-inline-start: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.food-dish {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.food-budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  background: var(--surface-soft);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.food-budget-table th {
+  background: var(--sand-200);
+  color: var(--drift-800);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+
+.food-budget-table td {
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--sand-100);
+}
+
+.food-budget-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.food-budget-table .budget-mad {
+  color: var(--drift-800);
+  font-weight: 500;
+}
+
+.food-budget-table .budget-eur {
+  color: var(--sea-600);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.food-tips-list {
+  padding-inline-start: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.food-tip {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  padding-left: var(--space-3);
+  position: relative;
+}
+
+.food-tip::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--sea-400);
+  font-weight: 600;
+}
+
+/* Attractions mobile overrides */
+@media (max-width: 480px) {
+  .attractions-section { padding-block: var(--space-12); }
+  .subsection-title { font-size: 1.2rem; }
+  .attraction-title { font-size: 1.05rem; }
+  .attraction-desc { font-size: 0.84rem; }
+  .food-area-label { font-size: 0.9rem; }
+  .food-area-tip { font-size: 0.82rem; }
+  .food-dish { font-size: 0.82rem; }
+  .food-budget-table { font-size: 0.78rem; }
+  .food-tip { font-size: 0.82rem; }
+}
