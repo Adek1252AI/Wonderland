@@ -465,7 +465,7 @@ ul, ol { list-style: none; }
 /* ---------- Small screens ---------- */
 /* ---------- Mobile: scrollable nav bar ---------- */
 @media (max-width: 480px) {
-  /* Header background stays full-width; inner row can scroll */
+  /* Header is the scroll container; logo pins to the left edge */
   .site-header {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -475,8 +475,7 @@ ul, ol { list-style: none; }
     display: none;
   }
 
-  /* Keep container padding (space from screen edges), but allow
-     the row to grow beyond the viewport when nav links overflow */
+  /* Row grows to fit all nav links, allowing horizontal scroll */
   .header-inner {
     justify-content: flex-start;
     width: max-content;
@@ -484,12 +483,18 @@ ul, ol { list-style: none; }
     padding-inline: var(--space-6);
   }
 
+  /* Pin Wonderland to the left edge while nav scrolls past it */
   .logo {
+    position: sticky;
+    left: 0;
     flex-shrink: 0;
     font-size: 1.1rem;
+    background: rgba(250, 248, 245, 0.95);
+    padding-right: var(--space-4);
+    z-index: 2;
   }
 
-  /* Scrollable nav row — sits to the right of the logo with a gap */
+  /* Nav sits to the right of logo with a gap; scrolls horizontally */
   .site-nav {
     flex-shrink: 0;
     display: flex;
@@ -507,6 +512,8 @@ ul, ol { list-style: none; }
     display: none;
   }
 
+  /* More breathing room from screen edges on mobile */
+  .container { padding-inline: var(--space-8); }
   .hero { padding-block: var(--space-16) var(--space-12); }
   .spots-section { padding-block: var(--space-12); }
   .spot-distance { margin-left: 0; }
