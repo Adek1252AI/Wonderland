@@ -482,7 +482,7 @@ ul, ol { list-style: none; }
     overflow-x: hidden;
   }
 
-  /* Logo is a solid block — stays put, never scrolls, blocks nav from sliding under */
+  /* Logo is a solid block — stays put via sticky positioning, blocks nav from sliding under */
   .logo {
     flex-shrink: 0;
     font-size: 1.1rem;
@@ -491,8 +491,8 @@ ul, ol { list-style: none; }
     margin-right: var(--space-4);
     border-radius: var(--radius-sm);
     box-shadow: 0 1px 3px rgba(59, 53, 44, 0.08);
-    position: relative;
-    z-index: 2;
+    position: sticky;
+    left: var(--space-6);
   }
 
   /* Nav is its own scroll container — links scroll but never enter logo's space */
