@@ -474,6 +474,29 @@
 
     // ──────────────────────────────────────────────────────
 
+    // ──────────────────────────────────────────────────────
+    //  iOS Safari: preload all technique images immediately
+    //  Safari won't fetch images inside opacity:0 containers,
+    //  so we pre-fetch them before the scroll-reveal animation.
+    // ──────────────────────────────────────────────────────
+    (function preloadTechniqueImages() {
+      const techniqueData = [
+        { src: 'img/techniques/01-paddling.jpg', w: 800, h: 533 },
+        { src: 'img/techniques/02-popup.jpg',    w: 800, h: 533 },
+        { src: 'img/techniques/06-whitewater.jpg', w: 508, h: 800 },
+        { src: 'img/techniques/03-stance.jpg',   w: 800, h: 498 },
+        { src: 'img/techniques/05-reading-waves.jpg', w: 800, h: 533 },
+        { src: 'img/techniques/07-bottomturn.jpg', w: 799, h: 541 },
+        { src: 'img/techniques/04-duckdive.jpg', w: 600, h: 800 },
+      ];
+      techniqueData.forEach(function(imgData) {
+        const img = new Image();
+        img.src = imgData.src;
+      });
+    })();
+
+    // ──────────────────────────────────────────────────────
+
     spots.forEach(renderSpot);
 
     // IntersectionObserver for scroll reveal

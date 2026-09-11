@@ -527,6 +527,8 @@ ul, ol { list-style: none; }
   width: 100%;
   height: auto;
   display: block;
+  /* Ensure Safari pre-allocates space */
+  min-height: 1px;
 }
 
 .technique-step {
@@ -554,11 +556,17 @@ ul, ol { list-style: none; }
   flex: 1;
 }
 
-/* Techniques mobile overrides */
+/* Techniques mobile overrides - disable scroll-reveal on small screens */
 @media (max-width: 480px) {
   .techniques-section { padding-block: var(--space-12); }
   .technique-step { font-size: 1.25rem; }
   .technique-title { font-size: 1.15rem; }
+  /* On mobile, always render reveal elements visible so Safari loads images */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ---------- Scroll reveal ---------- */
