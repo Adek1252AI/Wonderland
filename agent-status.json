@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-09-11T12:00:00Z",
+  "last_updated": "2026-09-11T12:30:00Z",
   "agents": [
     {
       "name": "builder",
       "status": "working",
-      "current_task": "Add techniques section to Wonderland",
+      "current_task": "Fix technique images for mobile (iOS) — integrate @reasercher's SVGs",
       "started_at": "2026-09-11T08:40:00Z",
-      "last_update": "2026-09-11T12:00:00Z",
+      "last_update": "2026-09-11T12:30:00Z",
       "chunks": [
         {"name": "Build HTML structure for techniques section", "status": "done", "message": "Section skeleton added"},
-        {"name": "Style with site CSS (minimalistic surf-vibe)", "status": "in_progress", "message": "Applying responsive layout"},
-        {"name": "Test on mobile browsers", "status": "pending", "message": ""},
-        {"name": "Integrate images from @reasercher", "status": "pending", "message": "Waiting for green light"}
+        {"name": "Style with site CSS (minimalistic surf-vibe)", "status": "done", "message": "Responsive layout applied"},
+        {"name": "Test on mobile browsers", "status": "done", "message": "Desktop + mobile test complete"},
+        {"name": "Integrate images from @reasercher", "status": "in_progress", "message": "Starting integration — images not visible on iOS, needs fix"}
       ],
       "errors": []
     },
