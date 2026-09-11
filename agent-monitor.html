@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wonderland — Agent Monitor</title>
+<style>
+  :root {
+    --sand: #f5e6d3;
+    --sea: #1a5276;
+    --driftwood: #8b7355;
+    --deep: #0d1b2a;
+    --foam: #ecf0f1;
+    --coral: #e74c3c;
+    --teal: #1abc9c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--deep) 0%, var(--sea) 100%);
+    color: var(--foam);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--sand);
+  }
+  header h1 span { color: var(--teal); font-weight: 600; }
+  header .subtitle {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .last-updated {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2rem;
+  }
+  .agent-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+  .agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .agent-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--sand);
+  }
+  .agent-name::before {
+    content: '@';
+    color: var(--teal);
+    margin-right: 0.2rem;
+  }
+  .status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .status-working { background: var(--teal); color: var(--deep); }
+  .status-done { background: #27ae60; color: white; }
+  .status-error { background: var(--coral); color: white; }
+  .status-idle { background: rgba(255,255,255,0.15); color: var(--foam); }
+  .current-task {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .chunks { list-style: none; }
+  .chunk {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.85rem;
+  }
+  .chunk-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+  .chunk-done { background: #27ae60; }
+  .chunk-in_progress { background: var(--teal); animation: pulse 1.5s infinite; }
+  .chunk-pending { background: rgba(255,255,255,0.15); }
+  .chunk-error { background: var(--coral); }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .chunk-name { flex: 1; }
+  .chunk-message {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-style: italic;
+  }
+  .errors {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(231, 76, 60, 0.15);
+    border-left: 3px solid var(--coral);
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  .errors-title {
+    color: var(--coral);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .timestamp {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 0.3rem;
+  }
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .refresh-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    color: var(--foam);
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-decoration: none;
+  }
+  .refresh-btn:hover { background: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Wonderland <span>Agent Monitor</span></h1>
+    <p class="subtitle">Real-time status of your agent team</p>
+  </header>
+
+  <p class="last-updated" id="lastUpdated">Loading...</p>
+
+  <div id="agentsContainer"></div>
+
+  <footer>
+    <p>Last data refresh: <span id="footerTime"></span></p>
+    <a href="javascript:location.reload()" class="refresh-btn">Refresh Now</a>
+  </footer>
+</div>
+
+<script>
+async function loadStatus() {
+  try {
+    const resp = await fetch('agent-status.json?t=' + Date.now());
+    const data = await resp.json();
+    render(data);
+  } catch (e) {
+    document.getElementById('agentsContainer').innerHTML =
+      '<p style="text-align:center;color:var(--coral);">Failed to load agent-status.json</p>';
+  }
+}
+
+function render(data) {
+  document.getElementById('lastUpdated').textContent =
+    'Last updated: ' + new Date(data.last_updated).toLocaleString();
+  document.getElementById('footerTime').textContent = new Date().toLocaleString();
+
+  const container = document.getElementById('agentsContainer');
+  container.innerHTML = '';
+
+  data.agents.forEach(agent => {
+    const statusClass = 'status-' agent.status;
+    const chunksHtml = agent.chunks.map(chunk => {
+      const iconClass = 'chunk-' chunk.status;
+      const icon = chunk.status === 'done' ? '✓' :
+                   chunk.status === 'in_progress' ? '●' :
+                   chunk.status === 'error' ? '✕' : '○';
+      return `<li class="chunk">
+        <span class="chunk-icon ${iconClass}">${icon}</span>
+        <span class="chunk-name">${chunk.name}</span>
+        ${chunk.message ? `<span class="chunk-message">${chunk.message}</span>` : ''}
+      </li>`;
+    }).join('');
+
+    const errorsHtml = agent.errors.length > 0
+      ? `<div class="errors">
+           <div class="errors-title">⚠ Errors</div>
+           ${agent.errors.map(e => `<div>• ${e}</div>`).join('')}
+         </div>`
+      : '';
+
+    container.innerHTML += `
+      <div class="agent-card">
+        <div class="agent-header">
+          <span class="agent-name">${agent.name}</span>
+          <span class="status-badge ${statusClass}">${agent.status}</span>
+        </div>
+        <div class="current-task">${agent.current_task || 'No active task'}</div>
+        <ul class="chunks">${chunksHtml}</ul>
+        ${errorsHtml}
+        <div class="timestamp">Started: ${new Date(agent.started_at).toLocaleString()} · Last update: ${new Date(agent.last_update).toLocaleString()}</div>
+      </div>`;
+  });
+}
+
+loadStatus();
+setInterval(loadStatus, 30000);
+</script>
+</body>
+</html>
