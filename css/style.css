@@ -494,7 +494,7 @@ ul, ol { list-style: none; }
   /* Pin Wonderland to the left edge while nav scrolls past it */
   .logo {
     position: sticky;
-    left: 0;
+    left: var(--space-6);
     flex-shrink: 0;
     font-size: 1.1rem;
     background: rgba(250, 248, 245, 0.95);
