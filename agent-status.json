@@ -1,34 +1,30 @@
 {
-  "last_updated": "2026-09-11T12:30:00Z",
+  "last_updated": "2026-09-11T12:35:00Z",
   "agents": [
     {
       "name": "builder",
       "status": "working",
       "current_task": "Fix technique images for mobile (iOS) — integrate @reasercher's SVGs",
       "started_at": "2026-09-11T08:40:00Z",
-      "last_update": "2026-09-11T12:30:00Z",
+      "last_update": "2026-09-11T12:35:00Z",
       "chunks": [
         {"name": "Build HTML structure for techniques section", "status": "done", "message": "Section skeleton added"},
         {"name": "Style with site CSS (minimalistic surf-vibe)", "status": "done", "message": "Responsive layout applied"},
         {"name": "Test on mobile browsers", "status": "done", "message": "Desktop + mobile test complete"},
-        {"name": "Integrate images from @reasercher", "status": "in_progress", "message": "Starting integration — images not visible on iOS, needs fix"}
+        {"name": "Integrate images from @reasercher", "status": "in_progress", "message": "Fixing iOS mobile image visibility — investigating references"}
       ],
       "errors": []
     },
     {
       "name": "reasercher",
-      "status": "done",
-      "current_task": "Generate 7 technique illustrations",
-      "started_at": "2026-09-11T08:45:00Z",
-      "last_update": "2026-09-11T08:50:00Z",
+      "status": "working",
+      "current_task": "Research attractions near Agadir — Other Sports, Places to Visit, Places to Eat",
+      "started_at": "2026-09-11T12:35:00Z",
+      "last_update": "2026-09-11T12:35:00Z",
       "chunks": [
-        {"name": "Generate paddling illustration", "status": "done", "message": "01-paddling.svg"},
-        {"name": "Generate pop-up illustration", "status": "done", "message": "02-popup.svg"},
-        {"name": "Generate stance illustration", "status": "done", "message": "03-stance.svg"},
-        {"name": "Generate duck dive / turtle roll illustration", "status": "done", "message": "04-duckdive.svg"},
-        {"name": "Generate reading waves illustration", "status": "done", "message": "05-reading-waves.svg"},
-        {"name": "Generate whitewater illustration", "status": "done", "message": "06-whitewater.svg"},
-        {"name": "Generate bottom turn illustration", "status": "done", "message": "07-bottomturn.svg"}
+        {"name": "Research Other Sport Activities near Agadir", "status": "in_progress", "message": "Starting research"},
+        {"name": "Research Places to Visit near Agadir", "status": "pending", "message": ""},
+        {"name": "Research Places to Eat near Agadir", "status": "pending", "message": ""}
       ],
       "errors": []
     }
