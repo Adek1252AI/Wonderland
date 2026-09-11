@@ -84,18 +84,6 @@ img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 
-/* ---------- Layout ---------- */
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin-inline: auto;
-  padding-inline: var(--space-6);
-}
-
-@media (min-width: 640px) {
-  .container { padding-inline: var(--space-8); }
-}
-
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
@@ -105,6 +93,7 @@ ul, ol { list-style: none; }
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--sand-200);
+  width: 100%;
 }
 
 .header-inner {
@@ -112,6 +101,7 @@ ul, ol { list-style: none; }
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  width: 100%;
 }
 
 .logo {
@@ -125,7 +115,11 @@ ul, ol { list-style: none; }
 
 .logo:hover { color: var(--sea-600); }
 
-.site-nav { display: flex; gap: var(--space-6); }
+.site-nav {
+  display: flex;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
 
 .site-nav a {
   font-size: 0.9rem;
@@ -133,6 +127,7 @@ ul, ol { list-style: none; }
   color: var(--text-secondary);
   position: relative;
   padding-bottom: 2px;
+  flex-shrink: 0;
   transition: color var(--transition);
 }
 
@@ -468,12 +463,69 @@ ul, ol { list-style: none; }
 .footer-links a:hover { color: rgba(250,248,245,0.9); }
 
 /* ---------- Small screens ---------- */
+/* ---------- Mobile: scrollable nav bar ---------- */
 @media (max-width: 480px) {
-  .site-nav { gap: var(--space-4); }
-  .site-nav a { font-size: 0.85rem; }
+  /* Allow header content to scroll horizontally */
+  .site-header {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .site-header::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Override .container so header-inner can grow beyond viewport width */
+  .header-inner {
+    justify-content: flex-start;
+    padding-inline: var(--space-3);
+    width: max-content;
+    margin-inline: 0;
+  }
+
+  .logo {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .site-nav {
+    flex-shrink: 0;
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .site-nav a {
+    font-size: 0.82rem;
+    padding-inline: var(--space-2);
+    white-space: nowrap;
+  }
+
+  .site-nav a::after {
+    display: none;
+  }
+
   .hero { padding-block: var(--space-16) var(--space-12); }
   .spots-section { padding-block: var(--space-12); }
   .spot-distance { margin-left: 0; }
+  .techniques-section { padding-block: var(--space-12); }
+  .technique-step { font-size: 1.25rem; }
+  .technique-title { font-size: 1.15rem; }
+  .attractions-section { padding-block: var(--space-12); }
+  .subsection-title { font-size: 1.2rem; }
+  .attraction-title { font-size: 1.05rem; }
+  .attraction-desc { font-size: 0.84rem; }
+  .food-area-label { font-size: 0.9rem; }
+  .food-area-tip { font-size: 0.82rem; }
+  .food-dish { font-size: 0.82rem; }
+  .food-budget-table { font-size: 0.78rem; }
+  .food-tip { font-size: 0.82rem; }
+
+  /* On mobile, always render reveal elements visible so Safari loads images */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ---------- Techniques section ---------- */
