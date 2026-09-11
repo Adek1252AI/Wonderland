@@ -465,7 +465,7 @@ ul, ol { list-style: none; }
 /* ---------- Small screens ---------- */
 /* ---------- Mobile: scrollable nav bar ---------- */
 @media (max-width: 480px) {
-  /* Allow header content to scroll horizontally */
+  /* Header background stays full-width; inner row can scroll */
   .site-header {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -475,12 +475,13 @@ ul, ol { list-style: none; }
     display: none;
   }
 
-  /* Override .container so header-inner can grow beyond viewport width */
+  /* Keep container padding (space from screen edges), but allow
+     the row to grow beyond the viewport when nav links overflow */
   .header-inner {
     justify-content: flex-start;
-    padding-inline: var(--space-3);
     width: max-content;
-    margin-inline: 0;
+    min-width: 100%;
+    padding-inline: var(--space-6);
   }
 
   .logo {
@@ -488,10 +489,12 @@ ul, ol { list-style: none; }
     font-size: 1.1rem;
   }
 
+  /* Scrollable nav row — sits to the right of the logo with a gap */
   .site-nav {
     flex-shrink: 0;
     display: flex;
     gap: var(--space-4);
+    margin-left: var(--space-5);
   }
 
   .site-nav a {
