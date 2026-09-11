@@ -473,22 +473,29 @@ ul, ol { list-style: none; }
 /* ---------- Small screens ---------- */
 /* ---------- Mobile: scrollable nav bar ---------- */
 @media (max-width: 480px) {
-  /* Header is the scroll container; logo pins to the left edge */
+  /* Header contains logo + scrolling nav; only the nav scrolls horizontally */
   .site-header {
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .site-header::-webkit-scrollbar {
-    display: none;
   }
 
   /* Row grows to fit all nav links, allowing horizontal scroll */
   .header-inner {
     justify-content: flex-start;
     width: max-content;
-    min-width: 100%;
+    min-width: calc(100% + var(--space-6));
     padding-inline: var(--space-6);
+  }
+
+  /* Nav sits in its own scroll container so it never slides under logo */
+  .scrolling-nav {
+    flex-shrink: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-left: var(--space-5);
+  }
+  .scrolling-nav::-webkit-scrollbar {
+    display: none;
   }
 
   /* Pin Wonderland to the left edge while nav scrolls past it */
