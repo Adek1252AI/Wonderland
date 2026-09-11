@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-09-11T14:00:00Z",
+  "last_updated": "2026-09-11T14:30:00Z",
   "agents": [
     {
       "name": "builder",
       "status": "working",
       "current_task": "Fix technique images for mobile (iOS) — integrate @reasercher's SVGs",
       "started_at": "2026-09-11T08:40:00Z",
-      "last_update": "2026-09-11T14:00:00Z",
+      "last_update": "2026-09-11T14:30:00Z",
       "chunks": [
         {"name": "Build HTML structure for techniques section", "status": "done", "message": "Section skeleton added"},
         {"name": "Style with site CSS (minimalistic surf-vibe)", "status": "done", "message": "Responsive layout applied"},
@@ -17,14 +17,14 @@
     },
     {
       "name": "reasercher",
-      "status": "working",
-      "current_task": "Research attractions near Agadir — Other Sports, Places to Visit, Places to Eat",
+      "status": "done",
+      "current_task": "Research attractions near Agadir — complete",
       "started_at": "2026-09-11T12:35:00Z",
-      "last_update": "2026-09-11T14:00:00Z",
+      "last_update": "2026-09-11T14:30:00Z",
       "chunks": [
-        {"name": "Research Other Sport Activities near Agadir", "status": "done", "message": "Research complete — findings saved"},
-        {"name": "Research Places to Visit near Agadir", "status": "in_progress", "message": "Starting research"},
-        {"name": "Research Places to Eat near Agadir", "status": "pending", "message": ""}
+        {"name": "Research Other Sport Activities near Agadir", "status": "done", "message": "8 categories, 6,259 bytes — saved"},
+        {"name": "Research Places to Visit near Agadir", "status": "done", "message": "7 categories — saved"},
+        {"name": "Research Places to Eat near Agadir", "status": "done", "message": "21,417 bytes, 14 restaurants, 10 food experiences, budget table — saved"}
       ],
       "errors": []
     }
