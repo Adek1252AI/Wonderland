@@ -1,34 +1,46 @@
 {
-  "last_updated": "2026-09-10T12:00:00Z",
+  "last_updated": "2026-09-11T08:50:00Z",
   "agents": [
     {
       "name": "builder",
       "status": "working",
       "current_task": "Add techniques section to Wonderland",
-      "started_at": "2026-09-10T11:50:00Z",
-      "last_update": "2026-09-10T12:00:00Z",
+      "started_at": "2026-09-11T08:40:00Z",
+      "last_update": "2026-09-11T08:50:00Z",
       "chunks": [
         {"name": "Build HTML structure for techniques section", "status": "done", "message": "Section skeleton added"},
         {"name": "Style with site CSS (minimalistic surf-vibe)", "status": "in_progress", "message": "Applying responsive layout"},
         {"name": "Test on mobile browsers", "status": "pending", "message": ""},
         {"name": "Integrate images from @reasercher", "status": "pending", "message": "Waiting for green light"}
       ],
-      "errors": []
+      "errors": ["Test error: syntax error on line 42"]
     },
     {
       "name": "reasercher",
-      "status": "done",
+      "status": "error",
       "current_task": "Generate 7 technique illustrations",
-      "started_at": "2026-09-10T11:55:00Z",
-      "last_update": "2026-09-10T12:05:00Z",
+      "started_at": "2026-09-11T08:45:00Z",
+      "last_update": "2026-09-11T08:50:00Z",
       "chunks": [
         {"name": "Generate paddling illustration", "status": "done", "message": "01-paddling.svg"},
         {"name": "Generate pop-up illustration", "status": "done", "message": "02-popup.svg"},
-        {"name": "Generate stance illustration", "status": "done", "message": "03-stance.svg"},
-        {"name": "Generate duck dive / turtle roll illustration", "status": "done", "message": "04-duckdive.svg"},
-        {"name": "Generate reading waves illustration", "status": "done", "message": "05-reading-waves.svg"},
-        {"name": "Generate whitewater illustration", "status": "done", "message": "06-whitewater.svg"},
-        {"name": "Generate bottom turn illustration", "status": "done", "message": "07-bottomturn.svg"}
+        {"name": "Generate stance illustration", "status": "error", "message": "SVG generation failed: size constraint"},
+        {"name": "Generate duck dive / turtle roll illustration", "status": "pending", "message": ""},
+        {"name": "Generate reading waves illustration", "status": "pending", "message": ""},
+        {"name": "Generate whitewater illustration", "status": "pending", "message": ""},
+        {"name": "Generate bottom turn illustration", "status": "pending", "message": ""}
+      ],
+      "errors": ["SVG generation failed on chunk 3: size constraint exceeded — retrying with smaller canvas", "Network timeout when uploading to repo"]
+    },
+    {
+      "name": "hermes",
+      "status": "idle",
+      "current_task": "Monitoring agent coordination",
+      "started_at": "2026-09-11T08:00:00Z",
+      "last_update": "2026-09-11T08:50:00Z",
+      "chunks": [
+        {"name": "Set up monitoring system", "status": "done", "message": "Dashboard deployed"},
+        {"name": "Test with fake data", "status": "in_progress", "message": "Verifying rendering"}
       ],
       "errors": []
     }
